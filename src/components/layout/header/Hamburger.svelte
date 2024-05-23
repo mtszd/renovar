@@ -1,13 +1,12 @@
 <script>
   import Rrss from '../../Rrss.svelte';
-  import DropMenuContent from './DropMenuContent.svelte';
   import {fade, slide} from 'svelte/transition'
 
   let isOpen = false;
 
   function toggleMenu() {
     isOpen = !isOpen;
-    console.log("El menú se ha abierto/cerrado");
+    
   }
 </script>
 
@@ -21,36 +20,48 @@
 </button>
 
 {#if isOpen}
+
   <div transition:fade={{ delay: 50, duration: 200 }} class="overlay"></div>
+
   <div transition:slide={{ duration: 300, axis: 'x' }} class="menu">
     
-      <DropMenuContent />
-      <div class="rrss">
-        <Rrss/>
-      </div>
-  
+        <div transition:fade={{ delay: 200, duration: 200 }} class= "items">
+
+          
+          <a href="/">Cotizar Gratis</a>
+          <a href="/">Productos</a>
+          <a href="/">Red de Instaladores</a>
+          
+          <span>Soluciones energeticas</span>
+          
+          <a href="/">Viviendas</a>
+          <a href="/">Negocios</a>
+          <a href="/">Empresas</a>
+          
+          <span>Recursos</span>
+          
+          <a href="/">Blog y noticias</a>
+          <a href="/">Guias de energia limpia</a>
+          
+          <span>Sobre Nosotros</span>
+          
+          <a href="/">Mision y valores</a>
+          <a href="/">Contacto</a>
+          
+          <div>
+          <Rrss/>
+          </div>
+          
+        </div>
   </div>
+  
+
 {/if}
 
 
 
 <style>
-  .menu {
-    display: flex;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 80%;
-    max-width: 400px;
-    background-color: var(--color-primary);
-    color: white;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    z-index: 100;
-    }
+  
 
   button {
     position: relative;
@@ -63,6 +74,58 @@
     z-index: 110;
   }
 
+  .menu {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 80%;
+    max-width: 400px;
+    background-color: var(--color-primary);
+    z-index: 100;
+  }
+  
+  .menu .items{
+    display: inherit;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    white-space: nowrap;
+    
+  }
+
+  .menu .items div {
+    margin-top: 20%;
+  }
+
+  .menu a{
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+  .menu span{
+    font-size: 0.8rem;
+    font-weight: bolder;
+    color: var(--color-text-secondary);
+    margin-top: 1rem;
+  }
+  
+  .menu a, .menu span {
+      text-transform: uppercase;
+  }
+  
+  .menu a:first-child {
+      background-color: var(--color-secondary);
+      padding: 0.8rem 2rem;
+      border-radius: 0.4rem;
+      border: 1px solid var(--color-accent);
+    }
+
   .overlay {
     position: fixed;
     top: 0;
@@ -73,8 +136,4 @@
     z-index: 90;
   }
 
-  .rrss{
-    margin-top: 10%;
-  }
-
-</style>
+  </style>

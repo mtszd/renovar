@@ -19,20 +19,17 @@
     <a href="/" class="rrss-link">
         <i class="fab fa-youtube"></i>
     </a>
-    <!-- Agrega más enlaces para otras redes sociales si es necesario -->
 </div>
 
 <style>
     .rrss-container {
-    /* Estilos para el contenedor de redes sociales */
-    display: flex;
-    align-items: center;
+        display: flex;
+        align-items: center;
     }
 
     .rrss-link {
-    /* Estilos para cada enlace de redes sociales */
-    margin-right: 10px; /* Espacio entre los enlaces */
-    color: var(--color-text-light); /* Color del icono */
-    font-size: large; /* Tamaño del icono */
+        margin-right: 10px;
+        color: var(--color-text-light);
+        font-size: large; 
     }
 </style>
