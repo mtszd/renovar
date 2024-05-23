@@ -1,0 +1,24 @@
+---
+import HeaderLink from '../header/HeaderLink.astro';
+---
+
+<nav class="desktop-only">
+    <HeaderLink href="/">Trabaja con nosotros</HeaderLink>
+    <HeaderLink href="/blog">Socios Comerciales</HeaderLink>
+    <HeaderLink href="/about">Blog</HeaderLink>
+</nav>
+<style>
+
+    .desktop-only {
+        display: none;
+    }
+
+    @media (width > 1024px) {
+        .desktop-only {
+            display: block;
+        }
+        .mobile-only {
+            display: none;
+        }
+    }
+</style>

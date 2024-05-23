@@ -1,0 +1,45 @@
+---
+import Logo from '../../Logo.astro';
+import HeaderNav from '../header/HeaderNav.astro';
+import Hamburger from '../header/Hamburger.svelte';
+import Rrss from '../../Rrss.svelte';
+---
+
+<header>
+    <Logo />
+    <HeaderNav />
+
+    <div class="desktop-only">
+        <Rrss />
+    </div>
+
+    <div class="mobile-only">
+        <Hamburger client:visible />
+    </div>
+</header>
+
+<style>
+    header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 5vw, 4rem);
+    background-color: var(--color-primary) ;
+    }
+
+
+    .desktop-only {
+        display: none;
+    }
+    .mobile-only {
+        display: block;
+    }
+    @media (width > 1024px) {
+        .desktop-only {
+            display: block;
+        }
+        .mobile-only {
+            display: none;
+        }
+    }
+</style>
