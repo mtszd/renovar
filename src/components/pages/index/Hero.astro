@@ -1,22 +1,65 @@
 <section aria-label="Hero Section" role="img">
-    <div class="hero-content">
-        <h1>Título Principal</h1>
-        <h2>Subtítulo</h2>
-        <h3>Otro subtítulo</h3>
-            <div class="buttons">
-                <button>Botón 1</button>
-                <button>Botón 2</button>
-            </div>
-        <span>Texto adicional</span>
-    </div>
+        
+        <h1>Energia Solar en Argentina</h1>
+        <span>Ahorra tiempo dinero y energia</span>
+        <h3>Encontra las mejores ofertas en productos solares de tu localidad.</h3>
+        <button>Empezar ahora</button>
+        <a href="/">¿Como funciona?</a>
+    
 </section>
 
 <style>
 
+button {
+    color: var(--color-text-light);
+    background-color: var(--color-accent);
+}
 section {
     width: 100%;
     height: 80vh;
-    background-image: url('/img/bg-hero-index.webp'), url('/img/bg-hero-index.jpg');
-    background-size: cover;
-    background-position: center;
+    background: var(--linear-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--color-text-light)  
+}
+
+h1 { 
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    width: 100%;
+    
+}
+
+h1::before{
+    color: var(--color-text-light);
+    margin-right: 0.5rem;
+    content: "#1 Marketplace";
+    background-color: var(--color-secondary);
+    padding: 0.2rem 0.5rem;
+}
+
+h3 {
+    width:80%
+}
+
+span {
+    width: 70%;
+    font-size: 3rem;
+    text-wrap: pretty;
+    font-weight: bolder;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    
+}
+
+a {
+    color: var(--color-text-secondary);
+    font-weight: bolder;
+    cursor: pointer;
 }

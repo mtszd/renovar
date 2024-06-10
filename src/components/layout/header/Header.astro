@@ -6,25 +6,33 @@ import Rrss from '../../Rrss.svelte';
 ---
 
 <header>
-    <Logo />
-    <HeaderNav />
+    <div class="container">
+        <Logo />
+        <HeaderNav />
 
-    <div class="desktop-only">
-        <Rrss />
-    </div>
+        <div class="desktop-only">
+            <Rrss />
+        </div>
 
-    <div class="mobile-only">
-        <Hamburger client:visible />
+        <div class="mobile-only">
+            <Hamburger client:visible />
+        </div>
     </div>
 </header>
 
 <style>
     header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 5vw, 4rem);
-    background-color: var(--color-primary) ;
+    position: absolute; /* Esto saca el header del flujo normal */
+    width: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    
+    }
+    .container {        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 5vw, 4rem);
     }
 
 

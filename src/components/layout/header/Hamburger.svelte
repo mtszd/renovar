@@ -111,7 +111,7 @@
   .menu span{
     font-size: 0.8rem;
     font-weight: bolder;
-    color: var(--color-text-secondary);
+    color: var(--color-text-category);
     margin-top: 1rem;
   }
   
