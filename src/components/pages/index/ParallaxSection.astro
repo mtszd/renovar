@@ -1,0 +1,84 @@
+<div class="parallax-container">
+
+    <div class="parallax-background"></div>
+    
+    <div class="parallax-overlay"></div>
+    
+    <div class="wrapper">
+
+        <div class="parallax-content">
+            
+            <h1 class="parallax-title">SOLUCIONES DE ENERGÍA LIMPIA PARA TODOS</h1>
+            <p class="parallax-subtitle">Investigue, compare y compre con ayuda de expertos a lo largo del camino.</p>
+            
+        </div>
+    
+    </div>
+        
+</div>
+
+
+
+
+<style>
+    .parallax-container {
+        position: relative;
+        overflow: hidden;
+        height: 450px;
+    }
+
+    .parallax-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/img/bg-parallax.avif');
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -2;
+    }
+
+    .parallax-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
+        z-index: -1;
+    }
+
+    .wrapper {
+        height: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .parallax-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        max-width: 80%;
+        text-align: center;
+        color: white;
+        gap: 2rem;
+    }
+
+    .parallax-title {
+        font-size: 2em;
+        margin: 0;
+    }
+
+    .parallax-subtitle {
+        font-size: 1.2em;
+        margin: 0;
+    }
+</style>
+

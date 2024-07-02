@@ -1,0 +1,167 @@
+---
+export interface CardProps {
+    image: string;
+    title: string;
+    subtitle: string;
+    paragraph: string;
+    link: string;
+}
+
+const { image, title, subtitle, paragraph, link } = Astro.props as CardProps;
+---
+
+<article class="card">
+    <div class="img-container">
+        <img src={image} alt={title} class="card-image" />
+    </div>
+    <div class="text-container">
+        <div class="text-wrapper">
+            <h3 class="card-title">{title}</h3>
+            <h4 class="card-subtitle">{subtitle}</h4>
+            <p class="card-paragraph">{paragraph}</p>
+            <a href={link} class="card-link"><p>Más información</p> <i class="fa-solid fa-angle-right"></i></a>
+        </div>
+    </div>
+</article>
+
+<style>
+    .card {        
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: 4px 8px 6px rgba(0, 0, 0, .2);
+        max-width: 493px;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .img-container {
+        width: 100%;
+    }
+
+    .card-image {
+        height: 150px;
+        width: 100%;
+        object-fit: cover;
+
+    }
+
+    .text-container{
+        padding: 1.5rem 2rem;
+    }
+
+    .card-title {
+        color: var(--color-text-gray);
+        font-size: 0.9rem;
+        letter-spacing: 0.05rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-subtitle {
+        color: var(--color-text-dark);
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-paragraph {
+        color: var(--color-text-dark);
+        font-size: 1.1rem;
+        line-height:1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-link {
+        display: inline-flex;
+        color: var(--color-primary);
+        position: relative;
+        top:5px;
+        text-decoration: none;
+    }
+
+    .card-link p {
+        font-weight: 600;
+    }
+
+    .card-link p:hover {
+        text-decoration: underline;
+    }
+
+    .card-link i {
+        padding: 0.1rem 0.8rem;
+    }
+
+    @media (min-width: 640px) and (max-width: 992px) {
+        .card {
+            max-width: 80%;
+            width: 80%;
+        }
+
+        .card-image {
+            height: 329px;
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1470px) {
+        .card {
+            flex-direction: row;
+            justify-content: center;
+            max-width: 80%;
+        }
+
+        .img-container {
+            width: 40%;
+            height: 320px;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 320px;
+        }
+
+        .text-container {
+            flex-basis: 70%;
+            padding: 1rem;
+        }
+
+        .text-wrapper {
+            margin: auto;
+            max-width: 90%;
+        }
+        .card-link {
+            top:12px;
+        }
+    }
+
+    @media (min-width: 1470px) {
+        .card {
+            gap: 1rem;
+            height: 660px;
+            margin: 0;
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .img-container {
+            height: 220px;
+            width: 100%;
+        }
+
+        .card-image {
+            height: 100%;
+            width: 100%;
+        }
+
+        .text-container {
+            max-width: 100%;
+        }
+
+        .card-link {
+            top:50px;
+        }
+
+        
+    }
+</style>

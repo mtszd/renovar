@@ -1,0 +1,64 @@
+---
+import Card from '../../Card.astro';
+
+const cards = [
+  {
+    image: '/img/panelsolar_familia.avif',
+    title: 'Energia solar para casas',
+    subtitle: 'Disfruta de cada momento en casa',
+    paragraph: 'Siente la tranquilidad de tener siempre energía en tu hogar y reduce el costo de tu factura de luz',
+    link: '/viviendas'
+  },
+  {
+    image: '/img/panelsolar_negocios.avif',
+    title: 'Energia solar para negocios',
+    subtitle: 'Potencia tu Éxito con Energía Solar',
+    paragraph: 'Mantén tus operaciones funcionando sin interrupciones y ofrece a tus clientes una experiencia unica',
+    link: '/locales'
+  },
+  {
+    image: '/img/panelsolar_empresas.avif',
+    title: 'Energia solar para empresas',
+    subtitle: 'Energía Sostenible para tu Producción',
+    paragraph: 'Optimiza tu producción, reduce costos, Califica para Incentivos fiscales y mas',
+    link: '/empresas'
+  }
+];
+---
+
+<section class="sector-cards">
+  {cards.map(card => (
+    <Card {...card} />
+  ))}
+</section>
+
+<style>
+  .sector-cards {
+    background-color: var(--color-background-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    padding: 4rem 0;
+  }
+
+  @media (min-width: 494px) {
+    .sector-cards {
+      align-items: center;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .sector-cards {
+      align-items: center;
+    }
+  }
+
+  @media (min-width: 1470px) {
+    .sector-cards {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+</style>
+
