@@ -105,29 +105,25 @@ button, input[type="button"] {
 }
 
 /* Animaciones */
-/* .appear {
-	animation-direction: normal;	
-	animation-fill-mode: none;
-	animation-iteration-count: 1;
-	animation-name: appear;
+.appear {
+	animation: appear linear both;
 	animation-timeline: view();
-	animation-timing-function:linear;
-	
+	animation-range: entry 20% cover 40%;	
 }
 
 @keyframes appear {
 
 	from {
 		opacity: 0;
-		transform: translatex(-300px);
+		transform: translatey(300px);
 	}
 
 	to {
 		opacity: 1;
-		transform: translatex(0px);	
+		transform: translatey(0px);	
 	}
 
-} */
+}
 
 
 /* Extra pequeño (0px - 575px) */
@@ -154,13 +150,13 @@ button, input[type="button"] {
 /* Grande (992px - 1199px) */
 @media (width > 1280px) {
     html {
-        font-size: var(--font-size-xlarge);
+        font-size: var(--font-size-large);
     }
 }
 
 /* Extra grande (1200px en adelante) */
 @media (min-width > 1440px) {
     html {
-        font-size: var(--font-size-xxlarge);
+        font-size: var(--font-size-large);
     }
 }
