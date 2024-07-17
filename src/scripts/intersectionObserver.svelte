@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { onMount } from 'svelte';
 
   export let onIntersect;
@@ -29,4 +29,4 @@
   });
 </script>
 
-<div id="scroll-end"></div>
+<div id="scroll-end"></div> -->

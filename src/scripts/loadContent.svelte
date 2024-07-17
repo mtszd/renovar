@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     import { changeUrl } from '../scripts/historyApi.js';
   
     export let url;
@@ -15,4 +15,4 @@
   </script>
   
   <button on:click={loadNewContent}>Load More</button>
-  
+   -->

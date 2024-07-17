@@ -1,6 +1,5 @@
 ---
 import MainLayout from './MainLayout.astro';
-import SideNav from '../components/layout/sidenav/SideNav.svelte';
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/pages/blog/FormattedDate.astro';
 
@@ -10,9 +9,6 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 ---	
 	
 <MainLayout>
-	<aside>
-	<SideNav/>
-	</aside>	
 	<main>
 		<article>
 		<div class="hero-image">

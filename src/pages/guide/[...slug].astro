@@ -1,0 +1,22 @@
+---
+// src/pages/guide/[slug].astro
+import { type CollectionEntry, getCollection } from 'astro:content';
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guide');
+  return guides.map((guide) => ({
+    params: { slug: guide.slug },
+    props: guide,
+  }));
+}
+
+type Props = CollectionEntry<'guide'>;
+
+const guide = Astro.props;
+const { Content } = await guide.render();
+---
+
+<GuideLayout title={guide.data.title} description={guide.data.description}>
+    <Content />
+</GuideLayout>
