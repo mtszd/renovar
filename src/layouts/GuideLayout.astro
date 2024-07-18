@@ -16,7 +16,7 @@ const guides: CollectionEntry<'guide'>[] = await getCollection('guide');
 
 <MainLayout>
 	<aside>
-		<SideNav {guides} {slug} />
+		<SideNav {guides} {slug} client:visible />
 	</aside>  
 	<main>
 		<article>

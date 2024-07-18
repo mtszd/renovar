@@ -1,5 +1,5 @@
 ---
-title: "Ejemplo de Guía 1"
+title: "Ejemplo de Guía 3"
 description: "Esta es una página de ejemplo para la guía de energía solar."
 slug: "ejemplo-de-guia-3"
 ---

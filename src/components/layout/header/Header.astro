@@ -22,17 +22,18 @@ import Rrss from '../../Rrss.svelte';
 
 <style>
     header {
-    position: absolute; /* Esto saca el header del flujo normal */
-    width: 100%;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.1);
+        position: relative;
+        width: 100%;
+        top: 0;
+        background-color: var(--color-primary);
+        z-index: 10;
     
     }
     .container {        
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 5vw, 4rem);
+        padding: 1rem 4rem;
     }
 
 
