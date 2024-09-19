@@ -12,53 +12,42 @@ const cards = [
   {
     image: '/img/panelsolar_negocios.avif',
     title: 'Energia solar para negocios',
-    subtitle: 'Potencia tu Éxito con Energía Solar',
-    paragraph: 'Mantén tus operaciones funcionando sin interrupciones y ofrece a tus clientes una experiencia unica',
+    subtitle: 'Potencia el Éxito de tu negocio',
+    paragraph: 'Mantén tus operaciones siempre listas y ofrece a tus clientes una experiencia unica',
     link: '/locales'
   },
   {
     image: '/img/panelsolar_empresas.avif',
     title: 'Energia solar para empresas',
-    subtitle: 'Energía Sostenible para tu Producción',
-    paragraph: 'Optimiza tu producción, reduce costos, Califica para Incentivos fiscales y mas',
+    subtitle: 'Energía Sostenible en tu producción',
+    paragraph: 'Optimiza tu producción, reduce costos y califica para Incentivos fiscales',
     link: '/empresas'
+  },
+  {
+    image: '/img/panelsolar_agroindustria.jpg',
+    title: 'Energia solar para agroindustrias',
+    subtitle: 'Energía Sostenible en tu producción',
+    paragraph: 'Optimiza tu producción, reduce costos y califica para Incentivos fiscales',
+    link: '/agroindustria'
   }
 ];
 ---
 
-<section class="sector-cards">
+<section class="card-wrapper">
   {cards.map(card => (
     <Card {...card} />
   ))}
 </section>
 
 <style>
-  .sector-cards {
-    background-color: var(--color-background-secondary);
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    justify-content: center;
-    padding: 4rem 0;
-  }
 
-  @media (min-width: 494px) {
-    .sector-cards {
-      align-items: center;
-    }
-  }
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se muevan a una nueva línea si no hay espacio */
+  justify-content: center; /* Centra las tarjetas en resoluciones donde haya espacio sobrante */
+  gap: 2rem; /* Espacio entre tarjetas */
+  padding: 2rem;
+}
 
-  @media (min-width: 992px) {
-    .sector-cards {
-      align-items: center;
-    }
-  }
-
-  @media (min-width: 1470px) {
-    .sector-cards {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-  }
 </style>
 

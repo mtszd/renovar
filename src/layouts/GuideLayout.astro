@@ -5,9 +5,9 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
 type GuideProps = {
-	title: string;
-	description: string;
-	slug: string;
+  title: string;
+  description: string;
+  slug: string;
 };
 
 const { title, slug } = Astro.props as GuideProps;
@@ -15,17 +15,18 @@ const guides: CollectionEntry<'guide'>[] = await getCollection('guide');
 ---
 
 <MainLayout>
-	<aside>
-		<SideNav {guides} {slug} client:visible />
-	</aside>  
-	<main>
-		<article>
-		<h1>{title}</h1>
-		<hr />
-		<slot />
-		</article>
-	</main>
+  <aside>
+    <SideNav {guides} {slug} client:visible />
+  </aside>
+  <main>
+    <article>
+      <h1>{title}</h1>
+      <hr />
+      <slot />
+    </article>
+  </main>
 </MainLayout>
+
 
 <style>
 	

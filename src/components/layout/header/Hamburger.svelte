@@ -67,7 +67,7 @@
     position: relative;
     background: none;
     border: none;
-    color: var(--color-text-light);
+    color: var(--color-neutral-400);
     font-size: clamp(1.6rem, 5vw, 1.8rem);
     width: 4rem;
     height: 3rem;
@@ -89,7 +89,7 @@
   
   .menu .items{
     display: inherit;
-    color: white;
+    color: var(--color-neutral-300);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -111,7 +111,7 @@
   .menu span{
     font-size: 0.8rem;
     font-weight: bolder;
-    color: var(--color-text-category);
+    /* color: var(--color-text-category); */
     margin-top: 1rem;
   }
   

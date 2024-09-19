@@ -1,35 +1,21 @@
+@import './colors.css';
+
 :root {
     /* Fuentes */
-    --font-family: 'Roboto', sans-serif;
-	--font-display: 'Fugaz One', sans-serif;
-	
+	--font-family-brand: 'Fugaz One', sans-serif;
+    --font-family-text: 'Poppins', sans-serif;
+	--font-family-title: 'Merriweather', serif;
 
-	--font-size-small: 12px;
-	--font-size-base: 14px;
-	--font-size-medium: 16px;
-	--font-size-large: 18px;
-	--font-size-xlarge: 20px;
-	--font-size-xxlarge: 22px;
-		
-    /* Colores */
-	/* Colores de marca */
-	--color-primary: #5EC05C;
-	--color-secondary: #47973A;
-	
-	/* Colores de fondo */
-	--color-background: #FFF;
-	--color-background-secondary: #F3F4F6;
-	/* Colores de texto */
-	--color-text-dark: #323232;
-	--color-text-light: #FFF;
-	--color-text-gray: #a4a4a4;
-	--color-text-secondary: #efe;
-	--color-text-category: #aff5ae;
-	/* Colores de acento */
-	--linear-gradient: linear-gradient(222deg, rgba(94,192,92,1) 0%, rgba(253,187,45,1) 100%);
-	--color-accent: #3dc928;
-	--color-link: #1a0dab;
-	
+	/* Tamaños de fuente */
+	--font-size-xsmall: 0.64rem;
+	--font-size-small: 0.8rem;
+	--font-size-base: 1rem;
+	--font-size-medium: 1.563rem;
+	--font-size-large: 1.953rem;
+	--font-size-xlarge: 2.441rem;
+	--font-size-xxlarge: 3.052rem;
+	--font-size-xxxlarge: 3.815rem;
+			
 }
 
 /* Reset CSS */
@@ -46,10 +32,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	display: block;
 }
 
-html {
-	font-size: var(--font-size-small);
-}
-
 main {
 	width: 100%;
 	margin: auto;
@@ -61,30 +43,23 @@ img {
 	height: auto;
 }
 
-/* Usos de las Fuentes */
-
 h1, h2 {
-    font-family: var(--font-display);
+	font-family: var(--font-family-title);
+}
+
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, input, textarea, button, input[type="button"], a, label, nav, footer {
+	font-family: var(--font-family-text);
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, input, textarea, button, input[type="button"], a, label, nav, footer {
 	font-optical-sizing: auto;
     font-style: normal;
 	text-wrap: pretty;
 }
 
-body, h3, h4, h5, h6, p, ul, ol, input, textarea, button, label, nav, footer {
-    font-family: var(--font-family);
-    font-weight: 400;
-	font-optical-sizing: auto;
-    font-style: normal;
-	text-wrap: pretty;
-}
-
-button, input[type="button"], a, label, nav {
-    font-family: var(--font-family);
-    font-weight: 500;
-}
-
+	
 button, input[type="button"] {
-	padding: 0.7rem 1.4rem;
 	border-radius: 0.2rem;
 }
 
@@ -105,17 +80,19 @@ button, input[type="button"] {
 }
 
 /* Animaciones */
+
 .appear {
 	animation: appear linear both;
 	animation-timeline: view();
-	animation-range: entry 20% cover 40%;	
+	animation-range: entry 20% cover 30%;
+	animation-fill-mode: both;
 }
 
 @keyframes appear {
 
 	from {
 		opacity: 0;
-		transform: translatey(300px);
+		transform: translatey(100px);
 	}
 
 	to {
@@ -125,38 +102,36 @@ button, input[type="button"] {
 
 }
 
+@keyframes animate-gradient {
+
+	to{
+		background-position: 200%;
+	}
+
+}
+
 
 /* Extra pequeño (0px - 575px) */
 @media (width > 380px) {
-    html {
-        font-size: var(--font-size-base); /* Esto afectará todas las unidades rem */
-    }
+
 }
 
 /* Pequeño (576px - 767px) */
 @media (width > 576px) {
-    html {
-        font-size: var(--font-size-medium);
-    }
+
 }
 
 /* Mediano (768px - 991px) */
 @media (width >  992px) {
-    html {
-        font-size: var(--font-size-large);
-    }
+
 }
 
 /* Grande (992px - 1199px) */
 @media (width > 1280px) {
-    html {
-        font-size: var(--font-size-large);
-    }
+
 }
 
 /* Extra grande (1200px en adelante) */
-@media (min-width > 1440px) {
-    html {
-        font-size: var(--font-size-large);
-    }
+@media (width > 1440px) {
+
 }
