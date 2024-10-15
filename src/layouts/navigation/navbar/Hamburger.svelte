@@ -1,6 +1,6 @@
 <script>
-import Rrss from '../../Rrss.svelte';
-import SurveyButton from 'src/components/SurveyButton.svelte';
+import Rrss from '../../../components/brand/Rrss.svelte';
+import SurveyButton from 'src/components/ui/SurveyButton.svelte';
 import {fade, slide} from 'svelte/transition';
 
 let isOpen = false;
