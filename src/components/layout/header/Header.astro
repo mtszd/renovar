@@ -2,18 +2,16 @@
 import Logo from '../../Logo.astro';
 import HeaderNav from '../header/HeaderNav.astro';
 import Hamburger from '../header/Hamburger.svelte';
-import Rrss from '../../Rrss.svelte';
 ---
 
 <header>
     <div class="container">
-        <Logo />
-        <HeaderNav />
-
-        <div class="desktop-only">
-            <Rrss />
+        <div class="logo-wrapper">
+            <Logo />
         </div>
-
+        <div class="nav-wrapper">
+            <HeaderNav />
+        </div>
         <div class="mobile-only">
             <Hamburger client:visible />
         </div>
@@ -21,21 +19,30 @@ import Rrss from '../../Rrss.svelte';
 </header>
 
 <style>
+
     header {
         position: relative;
         width: 100%;
         top: 0;
         background-color: var(--color-neutral-100);
         z-index: 10;
-    
+        
     }
     .container {        
+        height: 72px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 1rem 4rem;
+        padding: 0 2rem;
     }
 
+    .logo-wrapper {
+        position: absolute;
+        left: 0;
+    }
+    .nav-wrapper {
+        margin: auto;
+        max-width: 60%;
+    }
 
     .desktop-only {
         display: none;
@@ -43,6 +50,7 @@ import Rrss from '../../Rrss.svelte';
     .mobile-only {
         display: block;
     }
+
     @media (width > 1024px) {
         .desktop-only {
             display: block;

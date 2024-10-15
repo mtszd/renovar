@@ -29,7 +29,7 @@
 
     .rrss-link {
         margin-right: 10px;
-        color: var(--color-text-light);
+        color: var(--icon-color, white);
         font-size: large; 
     }
 </style>

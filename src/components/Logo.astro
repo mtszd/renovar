@@ -1,19 +1,58 @@
-<a href="/" aria-label="Home">
-    <span>Sunvey</span>
-</a>
+<div class="container">
+  <a href="/" aria-label="Home">
+    <div class="logo-wrapper">
+      <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 340" width="32" height="42">
+        <style>
+          .s0 { fill: #646464 } 
+        </style>
+        <g id="Layer 1">
+          <path class="s0" d="m160.7 41.5l-35.3 35.3-35.4-35.3 35.4-35.4z"/>
+          <path class="s0" d="m203.8 84.6l-35.3 35.3-35.4-35.3 35.4-35.4z"/>
+          <path class="s0" d="m117.6 84.6l-35.4 35.3-35.3-35.3 35.3-35.4z"/>
+          <path class="s0" d="m160.7 127.7l-35.3 35.4-35.4-35.4 35.4-35.3z"/>
+          <path class="s0" d="m74.4 127.7l-35.3 35.4-35.4-35.4 35.4-35.3z"/>
+          <path class="s0" d="m117.6 170.9l-35.4 35.3-35.3-35.3 35.3-35.4z"/>
+          <path class="s0" d="m203.1 170.1l-35.3 35.4-35.4-35.4 35.4-35.3z"/>
+          <path class="s0" d="m246.3 213.3l-35.4 35.3-35.3-35.3 35.3-35.4z"/>
+          <path class="s0" d="m160 213.3l-35.4 35.3-35.3-35.3 35.3-35.4z"/>
+          <path class="s0" d="m203.1 256.4l-35.3 35.4-35.4-35.4 35.4-35.3z"/>
+          <path class="s0" d="m116.9 256.4l-35.4 35.4-35.3-35.4 35.3-35.3z"/>
+          <path class="s0" d="m160 299.5l-35.4 35.4-35.3-35.4 35.3-35.3z"/>
+        </g>
+      </svg>
+      <span>Sunvey</span>
+    </div>
+  </a>
+</div>
 
 <style>
+    
+    .container {
+      padding-left: 2rem;
+    }
+    
     a {
       text-decoration: none;
-      font-weight: 100;
-      font-size: 2rem;
-      color: var(--color-neutral-400);
     }
 
+    .logo-wrapper {
+      display: flex;
+      gap: 1rem;
+    }
+    
     span{
       font-family: var(--font-family-brand);
       letter-spacing: -0.125rem;
-    
+      font-weight: 100;
+      font-size: 2rem;
+      color: var(--color-neutral-400);
+      
+    }
+
+    @media (width > 576px) {
+      .container {
+      padding-left: 6rem;
+      }
     }
 </style>
 

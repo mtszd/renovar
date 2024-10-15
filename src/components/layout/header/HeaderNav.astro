@@ -1,11 +1,28 @@
 ---
-import HeaderLink from '../header/HeaderLink.astro';
+import UserDropMenu from './UserDropMenu.astro';
+import BusinessDropMenu from './BusinessDropMenu.astro';
 ---
 
-<nav class="desktop-only">
-    <HeaderLink href="/">Trabaja con nosotros</HeaderLink>
-    <HeaderLink href="/blog">Socios Comerciales</HeaderLink>
-    <HeaderLink href="/about">Blog</HeaderLink>
+<nav class="desktop-only navbar">
+    <ul class="navbar-menu">
+        <li class="menu-item">
+            <button type="button">Usuarios</button>
+            <div class="dropdown">
+                <UserDropMenu/>
+            </div>
+        </li>
+        
+        <li class="menu-item">
+            <button type="button">Anunciantes</button>
+            <div class="dropdown">
+                <BusinessDropMenu/>
+            </div>
+        </li>
+    
+        <li class="menu-item">
+            <button type="button">Nosotros</button>
+        </li>
+    </ul>
 </nav>
 <style>
 
@@ -13,12 +30,46 @@ import HeaderLink from '../header/HeaderLink.astro';
         display: none;
     }
 
+    .navbar-menu {
+        list-style: none;
+        display: flex;
+    }
+    
+    .menu-item {
+        display: flex;
+        height: 72px;
+    }
+    
+    button {
+        background: none;
+        cursor: pointer;
+        padding: 0.5rem 1.5rem;
+    }
+    
+    button:hover {
+        color: var(--color-green-300);
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 95%;
+        left: 0;
+        width: 100vw;
+        background-color: #fff;
+        z-index: 10;
+        box-shadow: ;
+    }
+    
+    
+    .menu-item:hover .dropdown,
+    .menu-item:focus-within .dropdown {
+        display: flex; /* Mantén visible el dropdown cuando el mouse esté sobre el botón o dropdown */
+    }
+    
     @media (width > 1024px) {
         .desktop-only {
             display: block;
         }
-        .mobile-only {
-            display: none;
-        }
-    }
+}
 </style>

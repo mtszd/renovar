@@ -1,54 +1,57 @@
 <script>
-  import Rrss from '../../Rrss.svelte';
-  import {fade, slide} from 'svelte/transition'
+import Rrss from '../../Rrss.svelte';
+import SurveyButton from 'src/components/SurveyButton.svelte';
+import {fade, slide} from 'svelte/transition';
 
-  let isOpen = false;
+let isOpen = false;
 
-  function toggleMenu() {
-    isOpen = !isOpen;
-    
-  }
+function openMenu() {
+  isOpen = true;
+}
+
+function closeMenu() {
+  isOpen = false;
+}
 </script>
 
 
-<button aria-label="Toggle menu" on:click={toggleMenu}>
-  {#if isOpen}
-    <i class="fas fa-times"></i>
-  {:else}
-    <i class="fas fa-bars"></i>
-  {/if}
+<button aria-label="Open menu" on:click={openMenu}>
+  <i class="fas fa-bars"></i>
 </button>
 
 {#if isOpen}
 
-  <div transition:fade={{ delay: 50, duration: 200 }} class="overlay"></div>
+  <div transition:fade={{ delay: 50, duration: 200 }} class="overlay" on:click={closeMenu} role="button" 
+  tabindex="0" on:keydown={(e) => e.key === 'Enter' && closeMenu()}></div>
 
   <div transition:slide={{ duration: 300, axis: 'x' }} class="menu">
     
-        <div transition:fade={{ delay: 200, duration: 200 }} class= "items">
+        <div transition:fade={{ delay: 200, duration: 200 }} class= "menu__items">
 
+          <button class="menu__close-button" aria-label="Close menu" on:click={closeMenu}>
+            <i class="fas fa-times"></i>
+          </button>
           
-          <a href="/">Cotizar Gratis</a>
-          <a href="/">Productos</a>
-          <a href="/">Red de Instaladores</a>
+          <SurveyButton/>
           
-          <span>Soluciones energeticas</span>
+          <span class="menu__category">Soluciones energeticas</span>
           
-          <a href="/">Viviendas</a>
-          <a href="/">Negocios</a>
-          <a href="/">Empresas</a>
+          <a class="menu__link" href="/">Viviendas</a>
+          <a class="menu__link" href="/">Negocios</a>
+          <a class="menu__link" href="/">Empresas</a>
           
-          <span>Recursos</span>
+          <span class="menu__category">Recursos</span>
           
-          <a href="/">Blog y noticias</a>
-          <a href="/">Guias de energia limpia</a>
+          <a class="menu__link" href="/">Informacion de productos</a>
+          <a class="menu__link" href="/">Guias de energia limpia</a>
+          <a class="menu__link" href="/">Blog</a>
+          <a class="menu__link" href="/">Noticias</a>
           
-          <span>Sobre Nosotros</span>
+          <span class="menu__category">Sobre Nosotros</span>
+          <a class="menu__link" href="/">Red de Instaladores</a>
+          <a class="menu__link" href="/">Contacto</a>
           
-          <a href="/">Mision y valores</a>
-          <a href="/">Contacto</a>
-          
-          <div>
+          <div style="--icon-color: var(--color-neutral-400);">
           <Rrss/>
           </div>
           
@@ -61,79 +64,70 @@
 
 
 <style>
+
+button {
+  background: none;
+  border: none;
+  font-size: var(--font-size-medium);
+}
+
+/* Estilos del menú */
+.menu {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 80%;
+  max-width: 400px;
+  background-color: var(--color-neutral-100);
+  z-index: 100;
+}
+
+.menu__close-button {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  color: var(--color-neutral-400);
+}
+
+.menu__items {
+  display: flex;
+  color: var(--color-neutral-300);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  white-space: nowrap;
+}
+
+.menu__items > div {
+  margin-top: 3rem;
+}
+
+.menu__link {
+  color: var(--color-neutral-400);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+}
+
+.menu__category {
+  font-size: var(--font-size-small);
+  font-weight: bolder;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  color: var(--color-green-300);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+}
   
-
-  button {
-    position: relative;
-    background: none;
-    border: none;
-    color: var(--color-neutral-400);
-    font-size: clamp(1.6rem, 5vw, 1.8rem);
-    width: 4rem;
-    height: 3rem;
-    z-index: 110;
-  }
-
-  .menu {
-    display: flex;
-    position: fixed;
-    justify-content: center;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 80%;
-    max-width: 400px;
-    background-color: var(--color-primary);
-    z-index: 100;
-  }
-  
-  .menu .items{
-    display: inherit;
-    color: var(--color-neutral-300);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    white-space: nowrap;
-    
-  }
-
-  .menu .items div {
-    margin-top: 20%;
-  }
-
-  .menu a{
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-  .menu span{
-    font-size: 0.8rem;
-    font-weight: bolder;
-    /* color: var(--color-text-category); */
-    margin-top: 1rem;
-  }
-  
-  .menu a, .menu span {
-      text-transform: uppercase;
-  }
-  
-  .menu a:first-child {
-      background-color: var(--color-secondary);
-      padding: 0.8rem 2rem;
-      border-radius: 0.4rem;
-      border: 1px solid var(--color-accent);
-    }
-
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 90;
-  }
-
 </style>

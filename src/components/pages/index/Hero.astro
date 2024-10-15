@@ -1,5 +1,7 @@
 ---
 import Slider from "src/components/Slider.astro";
+import SurveyButton from "src/components/SurveyButton.svelte";
+
 ---
 
 <section class="main-container">
@@ -8,12 +10,12 @@ import Slider from "src/components/Slider.astro";
             <div class="hero-content">
                 <h1>Energia Solar en Argentina</h1>
                 
-                <span>Las mejores ofertas en <span class="text-gradient">productos solares</span></span> 
+                <span class="speach">Las mejores ofertas en <span class="text-gradient">productos solares</span></span> 
                 
                 <p>Obtene multiples cotizaciones de las mejores empresas de la region. Contacta con proveedores e instaladores en un solo lugar, gratis y sin registro.</p>
                 
                 <div class="button-wrapper">
-                    <button>Cotizar ahora</button>
+                    <SurveyButton/>
                     <a href="/">¿Como funciona?</a>
                 </div>
             </div>
@@ -96,7 +98,7 @@ p {
     
 }
 
-span {
+.speach {
     display: inline;
     text-transform: uppercase;
     font-family: var(--font-family-text);
@@ -124,21 +126,6 @@ span {
     gap: 1rem;
 }
 
-button {
-    color: var(--color-text-light);
-    background-color: var(--color-green-300);
-    padding: 0.5rem 2.5rem;
-    border: none;
-    cursor: pointer;
-    width: 90%;
-    max-width: 250px;
-    transition: background-color 0.4s ease;
-}
-
-button:hover {
-    background-color: var(--color-green-400);
-}
-
 a {
     color: var(--color-neutral-400);
     font-weight: 600;
@@ -146,11 +133,12 @@ a {
     text-decoration: none;
     text-align: center;
     width: 100%;
-    transition: color 0.4s ease;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--color-green-400);
+    color: var(--color-neutral-500);
+    transform: scale(1.025);
 }
 
 /* Media query para pantallas más grandes */
@@ -185,7 +173,7 @@ a:hover {
         line-height: 2rem;
     }
 
-    span {
+    .speach {
         font-size: var(--font-size-medium);
         line-height: 32px;
     }
@@ -218,7 +206,7 @@ a:hover {
         
     }
 
-    span {
+    .speach {
         width: 500px;
         font-size: var(--font-size-xlarge);
         line-height: 44px;
