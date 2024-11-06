@@ -111,27 +111,27 @@ button, input[type="button"] {
 }
 
 
-/* Extra pequeño (0px - 575px) */
+
 @media (width > 380px) {
 
 }
 
-/* Pequeño (576px - 767px) */
+
 @media (width > 576px) {
 
 }
 
-/* Mediano (768px - 991px) */
+
 @media (width >  992px) {
 
 }
 
-/* Grande (992px - 1199px) */
+
 @media (width > 1280px) {
 
 }
 
-/* Extra grande (1200px en adelante) */
+
 @media (width > 1440px) {
 
 }
