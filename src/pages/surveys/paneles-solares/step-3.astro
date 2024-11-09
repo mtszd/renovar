@@ -4,26 +4,23 @@ import SurveyNav from "src/modules/survey/components/SurveyNav.svelte";
 import RadioForm from "src/modules/survey/components/RadioForm.svelte";
 
 
-const currentStep = 2;
+const currentStep = 3;
 const baseUrl = "/surveys/paneles-solares/step-";
 const prevUrl = currentStep > 1 ? `${baseUrl}${currentStep - 1}` : "/surveys";
 const nextUrl = `${baseUrl}${currentStep + 1}`;
 
 const options = [
-    { value: "reducir-factura", label: "Reducir mi factura eléctrica" },
-    { value: "autosuficiencia", label: "Ser más autosuficiente en energía" },
-    { value: "cortes-luz", label: "Tener energía durante cortes de luz" },
-    { value: "huella-carbono", label: "Contribuir a reducir la huella de carbono" }
+    { value: "factura", label: "factura" },
 ];
 
-const inputName = "objetivo principal";
+const inputName = "factura";
 const inputType = "radio";
 const inputSelector = `input[name='${inputName}']`;
 ---
 
 <SurveyLayout>
 
-<h1 style="text-align: center">Selecciona el tipo de propiedad</h1>
+<h1 style="text-align: center">imagen boleta</h1>
 
     <RadioForm options={options} inputName={inputName} />
 

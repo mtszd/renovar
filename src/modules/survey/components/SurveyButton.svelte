@@ -1,4 +1,4 @@
-<a href="/"><span>Cotizar ahora</span></a>
+<a href="/surveys"><span>Cotizar ahora</span></a>
 
 <style>
     
@@ -12,13 +12,19 @@ a {
                     hsla(236.91176470588243,77%,74%,1),
                     hsla(186.61764705882354,77%,74%,1),
                     hsla(127.0588235294118,77%,74%,1), 
-                    hsla(62.20588235294117,77%,74%,1) );
+                    hsla(62.20588235294117,77%,74%,1),
+                    hsla(127.0588235294118,77%,74%,1), 
+                    hsla(186.61764705882354,77%,74%,1),
+                    hsla(236.91176470588243,77%,74%,1),
+                    hsla(295.99999999999994,77%,74%,1));
     display: flex;
     font-size: var(--font-size-small);
+    background-size: 200%;
     padding: 4px;
     cursor: pointer;
     transition: 0.3s;
     max-width: 300px;
+    
 }
 
 a span {
@@ -32,10 +38,10 @@ a span {
 
 }
 
-a:hover span {
-    background: none;
-    color: var(--color-neutral-500);
-    font-weight: 700;
+a:hover, a:focus {
+    animation: animate-gradient 1s linear infinite; 
+    will-change: background-position;
+
 }
 
 a:active {

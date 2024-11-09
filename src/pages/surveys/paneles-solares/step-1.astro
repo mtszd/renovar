@@ -1,47 +1,40 @@
 ---
 import SurveyLayout from "src/layouts/SurveyLayout.astro";
 import SurveyNav from "src/modules/survey/components/SurveyNav.svelte";
-import type { InputType } from "src/modules/survey/types/InputType";
-import RadioInput from "src/components/inputs/RadioInput.svelte";
+import RadioForm from "src/modules/survey/components/RadioForm.svelte";
 
-const inputType: InputType = 'radio';
+
+const currentStep = 1;
+const baseUrl = "/surveys/paneles-solares/step-";
+const prevUrl = currentStep > 1 ? `${baseUrl}${currentStep - 1}` : "/surveys";
+const nextUrl = `${baseUrl}${currentStep + 1}`;
+
+const options = [
+    { value: "Casa familiar", label: "Casa familiar" },
+    { value: "Local Comercial", label: "Local Comercial" },
+    { value: "Industria", label: "Industria" },
+    { value: "Agroindustria", label: "Agroindustria" }
+];
+
+const inputName = "tipo de propiedad";
+const inputType = "radio";
+const inputSelector = `input[name='${inputName}']`;
 ---
 
 <SurveyLayout>
-    
-    <h1 style="text-align: center">Selecciona el tipo de propiedad</h1>
 
-    <form class="radio-group">
+<h1 style="text-align: center">Selecciona el tipo de propiedad</h1>
 
-      <RadioInput name="propiedad" value="casa-familiar" label="Casa familiar"/>
+    <RadioForm options={options} inputName={inputName} />
 
-      <RadioInput name="propiedad" value="local-comercial" label="Local Comercial"/>
 
-      <RadioInput name="propiedad" value="industria" label="Industria"/>
-
-      <RadioInput name="propiedad" value="agroindustria" label="Agroindustria"/>
-
-    </form>
-
-      <SurveyNav
-      prevUrl="/surveys"
-      nextUrl="/survey/paneles-solares/step-2"
-      inputType="radio"
-      inputSelector="input[name='propiedad']"
-      client:load
-      />
+<SurveyNav
+    prevUrl={prevUrl}
+    nextUrl={nextUrl}
+    inputType={inputType}
+    inputSelector={inputSelector}
+    client:load
+/>
 
 </SurveyLayout>
-
-<style>
-
-
-  .radio-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    max-width: ;
-  }
-
-</style>
+    
