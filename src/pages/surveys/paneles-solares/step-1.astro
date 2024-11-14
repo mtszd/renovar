@@ -9,12 +9,7 @@ const baseUrl = "/surveys/paneles-solares/step-";
 const prevUrl = currentStep > 1 ? `${baseUrl}${currentStep - 1}` : "/surveys";
 const nextUrl = `${baseUrl}${currentStep + 1}`;
 
-const options = [
-    { value: "Casa familiar", label: "Casa familiar" },
-    { value: "Local Comercial", label: "Local Comercial" },
-    { value: "Industria", label: "Industria" },
-    { value: "Agroindustria", label: "Agroindustria" }
-];
+const options = ["Casa familiar", "Local Comercial", "Industria", "Agroindustria"];
 
 const inputName = "tipo de propiedad";
 const inputType = "radio";

@@ -1,17 +1,17 @@
 <script lang="ts">
     import RadioInput from "src/components/inputs/RadioInput.svelte";
 
-    export let options: { value: string, label: string }[] = [];
+    export let options: string [] = [];
     export let inputName: string = "";
 
 </script>
 
 <form class="radio-group">
-    {#each options as { value, label }}
+    {#each options as options}
         <RadioInput 
             name={inputName} 
-            value={value} 
-            label={label} 
+            value={options} 
+            label={options} 
         />
     {/each}
 </form> 

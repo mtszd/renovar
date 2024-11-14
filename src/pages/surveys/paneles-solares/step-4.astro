@@ -3,11 +3,14 @@ import SurveyLayout from "src/layouts/SurveyLayout.astro";
 import SurveyNav from "src/modules/survey/components/SurveyNav.svelte";
 import RadioForm from "src/modules/survey/components/RadioForm.svelte";
 
-
 const currentStep = 4;
 const baseUrl = "/surveys/paneles-solares/step-";
 const prevUrl = currentStep > 1 ? `${baseUrl}${currentStep - 1}` : "/surveys";
-let nextUrl = `${baseUrl}${currentStep + 1}`;
+
+const defaultNextUrl = `${baseUrl}${currentStep + 1}`;
+const techoNextUrl = `${baseUrl}${currentStep}-b`;
+
+let nextUrl = defaultNextUrl;
 
 const options = [
     { value: "techo", label: "Techo" },
@@ -20,8 +23,7 @@ const inputSelector = `input[name='${inputName}']`;
 ---
 
 <SurveyLayout>
-
-<h1 style="text-align: center">Selecciona el espacio en el que planea realizar la instalacion</h1>
+    <h1 style="text-align: center">Selecciona el espacio en el que planea realizar la instalación</h1>
 
     <RadioForm 
         options={options}
@@ -29,12 +31,12 @@ const inputSelector = `input[name='${inputName}']`;
         client:load
     />  
 
-<SurveyNav
-    prevUrl={prevUrl}
-    nextUrl={nextUrl}
-    inputType={inputType}
-    inputSelector={inputSelector}
-    client:load
-/>
+    <SurveyNav
+        prevUrl={prevUrl}
+        nextUrl={nextUrl}
+        inputType={inputType}
+        inputSelector={inputSelector}
+        client:load
+    />
 
 </SurveyLayout>

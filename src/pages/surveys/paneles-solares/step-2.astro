@@ -9,12 +9,7 @@ const baseUrl = "/surveys/paneles-solares/step-";
 const prevUrl = currentStep > 1 ? `${baseUrl}${currentStep - 1}` : "/surveys";
 const nextUrl = `${baseUrl}${currentStep + 1}`;
 
-const options = [
-    { value: "reducir-factura", label: "Reducir mi factura eléctrica" },
-    { value: "autosuficiencia", label: "Ser más autosuficiente en energía" },
-    { value: "cortes-luz", label: "Tener energía durante cortes de luz" },
-    { value: "huella-carbono", label: "Contribuir a reducir la huella de carbono" }
-];
+const options = ["Reducir mi factura eléctrica", "Ser más autosuficiente en energía", "Tener energía durante cortes de luz", "Contribuir a reducir la huella de carbono"];
 
 const inputName = "objetivo principal";
 const inputType = "radio";
