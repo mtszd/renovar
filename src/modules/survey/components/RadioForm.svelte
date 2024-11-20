@@ -1,26 +1,26 @@
 <script lang="ts">
     import RadioInput from "src/components/inputs/RadioInput.svelte";
+    import { surveyStore } from '../stores/surveyStore';
 
-    export let options: string [] = [];
+    export let options: string[] = [];
     export let inputName: string = "";
 
+    $: savedAnswer = $surveyStore[inputName] as string;
+
+    function handleChange(event: Event) {
+        const target = event.target as HTMLInputElement;
+        surveyStore.setAnswer(inputName, target.value);
+    }
 </script>
 
 <form class="radio-group">
-    {#each options as options}
+    {#each options as option}
         <RadioInput 
             name={inputName} 
-            value={options} 
-            label={options} 
+            value={option} 
+            label={option}
+            checked={savedAnswer === option}
+            on:change={handleChange}
         />
     {/each}
-</form> 
-
-<style>
-    .radio-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-}
-</style>
+</form>

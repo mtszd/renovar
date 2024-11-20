@@ -20,15 +20,19 @@ const inputSelector = `input[name='${inputName}']`;
 
 <h1 style="text-align: center">imagen boleta</h1>
 
-    <RadioForm options={options} inputName={inputName} />
-
-
-<SurveyNav
-    prevUrl={prevUrl}
-    nextUrl={nextUrl}
-    inputType={inputType}
-    inputSelector={inputSelector}
+    <RadioForm 
+    options={options}
+    inputName={inputName}
     client:load
-/>
+    />  
+
+    <SurveyNav
+        prevUrl={prevUrl}
+        nextUrl={nextUrl}
+        inputType={inputType}
+        inputSelector={inputSelector}
+        inputName={inputName}
+        client:load
+    />
 
 </SurveyLayout>

@@ -1,16 +1,22 @@
 <script lang="ts">
-    import NextButton from './NextButton.svelte';
     import { onMount } from 'svelte';
-    import type { InputType } from 'src/modules/survey/types/InputType';
+    import NextButton from './NextButton.svelte';
+    import { surveyStore } from '../stores/surveyStore';
+    import type { InputType } from '../types/InputType';
 
-    // Props
     export let prevUrl: string;
     export let nextUrl: string;
     export let inputType: InputType;
     export let inputSelector: string;
+    export let inputName: string;  
 
     let isValid = false;
 
+    onMount(() => {
+        setTimeout(() => {
+            isValid = $surveyStore[inputName] !== undefined && $surveyStore[inputName] !== null;
+        }, 0);
+    });
     // Función para validar inputs de tipo radio
     function validateRadio(): boolean {
         const radioInputs = document.querySelectorAll(`${inputSelector}:checked`);
@@ -95,10 +101,10 @@
 
 <nav class="survey-nav">
     <button 
-    class="prev-button"
-    on:click={() => window.location.href = prevUrl}
+        class="prev-button"
+        on:click={() => window.location.href = prevUrl}
     >
-    Anterior
+        Anterior
     </button>
 
     <NextButton {nextUrl} {isValid} />
@@ -116,7 +122,7 @@
     padding: 0.75rem 1.5rem;
     font-size: var(--font-size-small);
     font-weight: 600;
-    color: var(--color-text-dark);
+    color: #727272;
     background-color: transparent;
     border: none;
     cursor: pointer;

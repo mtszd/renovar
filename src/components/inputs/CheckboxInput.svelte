@@ -1,39 +1,70 @@
 <script lang="ts">
-    export let label: string;
-    export let value: boolean = false;
-    export let required: boolean = false;
-    export let id: string;
+    import { createEventDispatcher } from 'svelte';
+    export let name: string = "";
+    export let value: string = "";
+    export let label: string = "";
+    export let imageUrl: string = "";
+    export let checked: boolean = false;
 
-    import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
 
     function handleChange(event: Event) {
     const target = event.target as HTMLInputElement;
-    value = target.checked;
-    dispatch("change", value);
+    dispatch('change', { value: target.value, checked: target.checked });
     }
 </script>
 
-<div class="checkbox-group">
-    <label>
+<label class="checkbox-option">
     <input
-        type="checkbox"
-        {id}
-        checked={value}
-        {required}
-        on:change={handleChange}
+    type="checkbox"
+    {name}
+    {value}
+    bind:checked
+    on:change={handleChange}
+    class="hidden-checkbox"
     />
-    {label}{required ? "*" : ""}
-    </label>
-</div>
+    <div class="custom-checkbox">
+    <img src={imageUrl} alt={label} />
+    <span>{label}</span>
+    </div>
+</label>
 
 <style>
-    .checkbox-group {
-    margin-bottom: 1rem;
+    .hidden-checkbox {
+    display: none;
     }
-    label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+
+    .checkbox-option {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    }
+
+    .custom-checkbox {
+    border: 2px solid transparent;
+    padding: 5px;
+    text-align: center;
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+    }
+
+    .custom-checkbox img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    }
+
+    .hidden-checkbox:checked + .custom-checkbox {
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-checkbox span {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
     }
 </style>
+  

@@ -16,7 +16,7 @@ function closeMenu() {
 </script>
 
 
-<button aria-label="Open menu" on:click={openMenu}>
+<button class="menu__open-button" aria-label="Open menu" on:click={openMenu}>
   <i class="fas fa-bars"></i>
 </button>
 
@@ -84,6 +84,10 @@ button {
   max-width: 400px;
   background-color: var(--color-neutral-100);
   z-index: 100;
+}
+
+.menu__open-button {
+  color: var(--color-neutral-400);
 }
 
 .menu__close-button {
