@@ -61,7 +61,7 @@
 </script>
 
 
-<div class="render-section">
+<div class="appear render-section">
     <div class="render-wrapper" class:reverse={reverse}>
     <div class="text-container">
         <span class="badge">{currentData.badge}</span>
