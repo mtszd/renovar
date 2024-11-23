@@ -4,13 +4,15 @@ import Hero from "src/modules/landing/components/Hero.astro";
 import RenderSection from "src/modules/three/RenderSection.svelte";
 import Technologies from "src/modules/landing/components/Technologies.astro";
 import Lumberjack from "src/modules/landing/Lumberjack.astro";
+import Bento from "src/modules/landing/components/bento.astro";
 ---
 
 <MainLayout>
     <main>
         <Hero/>
-        <div id="stack">
-            <Technologies/>
+        <Technologies/>
+        <div id="projects">
+            <Bento/>
         </div>
         <div id="intereses" class="render-container">
             <RenderSection selectedModel="guitar" client:visible />
@@ -30,7 +32,7 @@ import Lumberjack from "src/modules/landing/Lumberjack.astro";
     }
 
     [id] {
-        scroll-margin-top: 200px;
+        scroll-margin-top: 80px;
     }
 
     @media (max-width: 995px){

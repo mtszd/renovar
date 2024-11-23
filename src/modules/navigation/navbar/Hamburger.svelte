@@ -34,7 +34,7 @@ function closeMenu() {
           
           <span class="menu__category">En esta pagina</span>
           
-          <a class="menu__link" href="#stack" type="button">Tech Stack</a>
+          <a class="menu__link" href="#projects" type="button">Tech Stack</a>
           <a class="menu__link" href="#intereses" type="button">Intereses</a>
           <a class="menu__link" href="#lumber" type="button">Lumber Jack</a>
           
