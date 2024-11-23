@@ -5,51 +5,11 @@ import Rrss from 'src/modules/brand/components/Rrss.svelte';
 ---
 	
 <footer>
-<div class="footer-content">
-	<div class="footer-group">
-		<ul class="brand">
-				<Logo />
-				<li><a href="#">Sobre nosotros</a></li>
-				<li><a href="#">Contáctanos</a></li>
-				<li><a href="#">Red de Instaladores</a></li>
-				<li><a href="#">Oportunidades de Empleo</a></li>
-				<Rrss />
-		</ul>
-	</div>
-	<div class="footer-group">
-		<h4>Productos</h4>
-		<ul>
-				<li><a href="#">Sistema Fotovoltaico</a></li>
-				<li><a href="#">Sistema Térmico</a></li>
-				<li><a href="#">Bombeo Solar</a></li>
-				<li><a href="#">Paneles Solares</a></li>
-				<li><a href="#">Baterías</a></li>
-				<li><a href="#">Inversores</a></li>
-				<li><a href="#">Bombas de calor</a></li>
-				<li><a href="#">Otros productos</a></li>
-		</ul>
-	</div>
 
-	<div class="footer-group">
-		<h4>Contrataciones</h4>
-		<div class="links">
-			<ul>
-				<li><a href="#">Soluciones hogareñas</a></li>
-				<li><a href="#">Soluciones para negocios</a></li>
-				<li><a href="#">Soluciones empresariales</a></li>
-				<li><a href="#">Mantenimiento</a></li>
-			</ul>
-		</div>
-		<h4>Recursos</h4>
-		<ul>
-			<li><a href="#">Blog y noticias</a></li>
-			<li><a href="#">Guías de energía limpia</a></li>
-		</ul>
-	</div>
 
 </div>
 	<div class="footer-bottom">
-		<p><a id="logo" href="#">Sunvey</a> &copy;  {today.getFullYear()} Todos los derechos reservados. <a href="#">Condiciones de uso</a> y <a href="#">Política de privacidad</a></p>
+		<p><a id="logo" href="#">Dot Dager</a> &copy;  {today.getFullYear()} Puto el que lee.</p>
 	</div>
 </footer>
 
@@ -60,65 +20,37 @@ import Rrss from 'src/modules/brand/components/Rrss.svelte';
 	font-size: 1rem;
 }
 
-.brand{
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-}
-
-h4 {
-	text-transform: uppercase;
-	font-size: 0.75rem;
-	letter-spacing: 0.1rem;
-	/* color: var(--color-text-category); */
-}
 
 footer {
 
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
+	background-color: var(--color-primary);
+	color: var(--color-text-light);
 	display: block;
-    
-}
-
-.footer-content {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-    flex-direction: column;
-    padding: 4rem 2rem 6rem 2rem;	
-	gap: 2rem;
-}
-
-.footer-group {
-	width: 156px;
-	display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+	
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+	list-style: none;
+	padding: 0;
 }
 
 ul li {
-    margin-bottom: 0.4rem;
+	margin-bottom: 0.4rem;
 }
 
 a {	
-    color: var(--color-text-light);
-    text-decoration: none;
+	color: var(--color-text-light);
+	text-decoration: none;
 	font-size:0.9rem;
-    font-weight:300;
+	font-weight:300;
 	letter-spacing: 0.05rem;
 }
 
 .footer-bottom {
-    background-color: var(--color-secondary);
-    color: var(--color-text-light);
-    text-align: center;
-	padding: 4rem 2rem; 
+	background-color: #3d103f;
+	color: var(--color-text-light);
+	text-align: center;
+	padding: 2rem 1rem; 
 }
 
 .footer-bottom a {
@@ -126,26 +58,3 @@ a {
 	font-weight:700;
 	
 }
-
-
-@media (width > 377px) {
-
-	.footer-group {
-	width: 200px;
-	}
-}
-
-
-@media (width > 768px) {
-
-    .footer-content {
-		max-width: 100vw;
-        flex-direction: row;
-        justify-content: space-evenly;
-		margin-bottom: 2rem;
-    }
-	.footer-group {
-	width: 250px;
-	}
-}
-</style>

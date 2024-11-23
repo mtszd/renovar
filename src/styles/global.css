@@ -63,6 +63,14 @@ button, input[type="button"] {
 	border-radius: 0.2rem;
 }
 
+a{
+	text-decoration: none;
+}
+
+
+html {
+	scroll-behavior: smooth;
+}
 /* A11y*/
 
 .sr-only {

@@ -1,22 +1,36 @@
----
-import Slider from "src/components/ui/Slider.astro";
-import SurveyButton from "src/modules/survey/components/SurveyButton.svelte";
-
----
-
 <section class="main-container">
     <div class="inner-container">
         <div class="text-wrapper">
             <div class="hero-content">
-                <h1>Energia Solar en Argentina</h1>
+                <h1>Mariano Luis Villa</h1>
+
+                <span class="speach"><span class="text-gradient">Hokage del Backend,</span> <br> genin del Front</span> 
                 
-                <span class="speach">Las mejores ofertas en <span class="text-gradient">productos solares</span></span> 
-                
-                <p>Obtene multiples cotizaciones de las mejores empresas de la region. Contacta con proveedores e instaladores en un solo lugar, gratis y sin registro.</p>
-                
+                <p>Escribo mejores lineas que las que tomo, de veras!</p>
                 <div class="button-wrapper">
-                    <SurveyButton/>
-                    <a href="/">¿Como funciona?</a>
+                <div class="items-wrapper">
+                    <p class="items">Senior full stack developer</p>
+                    <p class="items">Creador de contenido</p>
+                    <p class="items">Apasionado por los gatos, la música y la filosofía</p>
+                    <p class="items">Contador serial de chistes de mierda.</p>
+                </div>
+                </div>
+
+                <div class="tech-container">
+                    <div class="tech-item">
+                        <a target="_blank" href="https://www.linkedin.com/in/mariano-luis-villa/" class="rrss">
+                            <img src="/icons/linkedin.svg"/>
+                        </a>
+                        <a target="_blank" href="https://github.com/MarianoVilla" class="rrss">
+                            <img src="/icons/Github_dark.svg"/>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/dager.32/" class="rrss">
+                            <img src="/icons/instagram_dark.svg"/>
+                        </a>
+                        <a target="_blank" href="https://www.discord.gg/4NFk6TamAB" class="rrss">
+                            <img src="/icons/discord.svg"/>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -26,11 +40,37 @@ import SurveyButton from "src/modules/survey/components/SurveyButton.svelte";
             </div>
         </div>
     </div>
-    <Slider/>
+    
 
 </section>
 
 <style>
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:12px;
+    max-width: 8rem;
+}
+
+.tech-item img {
+  width: 24px;
+  height: 24px;
+  filter: grayscale(1);
+}
+
+.tech-item img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+.tech-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .main-container {
     width: 100%;
@@ -38,27 +78,21 @@ import SurveyButton from "src/modules/survey/components/SurveyButton.svelte";
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+
 }
 
 .inner-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    width: 95%;
+    width: 80%;
     height: auto;
-    padding: 2rem 0;
+    padding: 4rem 0;
     border-radius: 30px;
-    background-color: hsla(204,0%,100%,1);
-    background-image:   radial-gradient(circle at 0% 0%, hsla(296, 77%, 74%, 0.35) 3.1210986267166043%,transparent 40%),
-                        radial-gradient(circle at 20% 0%, hsla(236.91176470588243,77%,74%,0.35) 3.1210986267166043%,transparent 40%),
-                        radial-gradient(circle at 40% 0%, hsla(187, 77%, 74%, 0.35) 3.1210986267166043%,transparent 40%),
-                        radial-gradient(circle at 60% 0%, hsla(127.0588235294118,77%,74%,0.35) 3.1210986267166043%,transparent 40%),
-                        radial-gradient(circle at 80% 0%, hsla(62.20588235294117,77%,74%,0.35) 3.1210986267166043%,transparent 40%),
-                        radial-gradient(circle at 100% 0%, hsla(24, 77%, 74%, 0.35) 3%,transparent 40%);
-    background-blend-mode: normal,normal,normal,normal,normal,normal;
+
 }
+
 
 .text-wrapper, .image-wrapper {
     width: 90%;
@@ -75,36 +109,73 @@ import SurveyButton from "src/modules/survey/components/SurveyButton.svelte";
     width: 100%;
     max-width: 380px;
     color: var(--color-text-dark);
-    gap: 2rem;
+    gap: 1rem;
     margin: 1rem;
 }
 
 .hero-image {
-    display: none;
+    display: flex;
+    width: 150px;
+    height: 150px;
+    margin: 2rem 0;
+    border-radius: 50%;
+    background-image: url('/img/hero-image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 h1 {
     font-family: var(--font-family-text);
     font-size: var(--font-size-base);
     text-transform: uppercase;
+    color: #f0f0f0;
     font-weight: 500;
-    line-height: 1.5rem;
+    line-height: 1rem;
 }
 
 p {
+    color: aliceblue;
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     font-size: var(--font-size-small);
     
 }
 
 .speach {
     display: inline;
-    text-transform: uppercase;
     font-family: var(--font-family-text);
     font-size: var(--font-size-medium);
+    color:white;
     font-weight: 500;
     line-height: 1.5;
+}
+
+.items-wrapper{
+    flex-direction: column;
+    display: none;
+}
+
+.items {
+    
+    font-size: var(--font-size-small);
+    color: #d0d0d0;
+    margin: 2px;
+    line-height: 16px;
+    padding-left: 16px;
+    position: relative;
+}
+
+.items::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgb(255, 136, 0);
 }
 
 .text-gradient {
@@ -142,7 +213,16 @@ a:hover {
 }
 
 
+
 @media (min-width: 992px) {
+
+    .tech-item {
+        justify-content: start;
+    }
+
+    .tech-container {
+    justify-content: start;
+    }
 
     .inner-container {
         flex-direction: row;
@@ -156,30 +236,31 @@ a:hover {
 
     .hero-content{
         text-align: left;
+        gap: 1rem;
     }
 
     .hero-image {
         display: flex;
-        background-image: url('/img/hero-image.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 100%;
-        height: 400px;
+        width: 300px;
+        height: 300px;
+    }
+
+    .items-wrapper{
+        display: flex;
     }
 
     h1 {
-        font-size: var(--font-size-small);
+        font-size: calc(var(--font-size-medium)*0.8);
         line-height: 2rem;
     }
 
     .speach {
-        font-size: var(--font-size-medium);
+        font-size: var(--font-size-large);
         line-height: 32px;
     }
 
     p {
-        font-size: var(--font-size-base);
+        font-size: calc(var(--font-size-base)*0.9);
         line-height: 1.6rem;
         width: 360px;
     }
@@ -202,14 +283,25 @@ a:hover {
     }
 
     .hero-content {
-        width: 650px;
-        
+        width: 650px;  
+        gap:1rem;      
+    }
+
+    .hero-image {
+        display: flex;
+        width: 400px;
+        height: 400px;
     }
 
     .speach {
         width: 500px;
         font-size: var(--font-size-xlarge);
         line-height: 44px;
+    }
+
+    h1 {
+        font-size: var(--font-size-medium);
+        
     }
 
     p {

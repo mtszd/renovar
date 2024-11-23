@@ -1,0 +1,120 @@
+---
+const mainTechnologies = [
+    { name: 'Csharp', logo: '/icons/csharp.svg'},
+    { name: '.net', logo: '/icons/netframework.svg'},
+    { name: 'sql-server', logo: '/icons/sql-server.svg'},
+    { name: 'Azure', logo: '/icons/azure.svg'},
+    { name: 'Swagger', logo: '/icons/swagger.svg'},
+    { name: 'Docker', logo: '/icons/docker.svg'},
+    { name: 'HTML', logo: '/icons/html5.svg' },
+    { name: 'CSS', logo: '/icons/css.svg' },
+    { name: 'PornHub', logo: '/icons/Pornhub.svg' },
+    { name: 'Javascript', logo: '/icons/javascript.svg' },
+    { name: 'TypeScript', logo: '/icons/typescript.svg' },
+    { name: 'Tailwind', logo: '/icons/tailwindcss.svg' },
+    { name: 'react', logo: '/icons/react.svg' },
+    { name: 'Git', logo: '/icons/git.svg'},
+    { name: 'GitHub', logo: '/icons/Github_dark.svg'},
+    { name: 'Lol', logo: '/icons/lol.jpg'},
+];
+---
+
+<section class="technologies">
+    <div class="techwrapper">
+        <div class="tech-section">
+            <h2>Tecnologías con las que trabajo</h2>
+            <div class="tech-container main-tech">
+                {mainTechnologies.map(tech => (
+                <div class="tech-item" title={tech.name}>
+                    <img src={tech.logo} alt={tech.name} />
+                </div>
+                ))}
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+
+.technologies{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    margin-bottom: 10rem;
+}
+
+.techwrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  padding: 2rem;
+  width: 70%;
+  flex-wrap: wrap; 
+}
+
+.tech-section {
+  flex: 1;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: var(--font-size-base);
+  color: #FFF;
+}
+
+.tech-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+
+}
+
+.tech-item img {
+  width: 48px;
+  height: 48px;
+  filter: grayscale(1);
+}
+
+.tech-item img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+@media (max-width: 972px) {
+  .technologies {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tech-item img{
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-section {
+    width: 100%;
+  }
+  .tech-container {
+    justify-content: space-around;
+  }
+  .tech-item img{
+    width: 32px;
+    height: 32px;
+  }
+}
+
+</style>

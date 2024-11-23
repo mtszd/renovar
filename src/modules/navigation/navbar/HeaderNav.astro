@@ -1,26 +1,15 @@
----
-import UserDropMenu from './UserDropMenu.astro';
-import BusinessDropMenu from './BusinessDropMenu.astro';
----
-
 <nav class="desktop-only navbar">
     <ul class="navbar-menu">
         <li class="menu-item">
-            <button type="button">Usuarios</button>
-            <div class="dropdown">
-                <UserDropMenu/>
-            </div>
+            <a href="#stack" type="button">Tech Stack</a>
         </li>
         
         <li class="menu-item">
-            <button type="button">Anunciantes</button>
-            <div class="dropdown">
-                <BusinessDropMenu/>
-            </div>
+            <a href="#intereses" type="button">Intereses</a>
         </li>
     
         <li class="menu-item">
-            <button type="button">Nosotros</button>
+            <a href="#lumber" type="button">Lumber Jack</a>
         </li>
     </ul>
 </nav>
@@ -40,32 +29,15 @@ import BusinessDropMenu from './BusinessDropMenu.astro';
         height: 72px;
     }
     
-    button {
+    a {
         background: none;
         cursor: pointer;
         padding: 0.5rem 1.5rem;
+        margin: 1.5rem 0;
+        color: #f0f0f0;
+        list-style: none;
     }
     
-    button:hover {
-        color: var(--color-green-300);
-    }
-
-    .dropdown {
-        display: none;
-        position: absolute;
-        top: 95%;
-        left: 0;
-        width: 100vw;
-        background-color: #fff;
-        z-index: 10;
-        box-shadow: ;
-    }
-    
-    
-    .menu-item:hover .dropdown,
-    .menu-item:focus-within .dropdown {
-        display: flex; /* Mantén visible el dropdown cuando el mouse esté sobre el botón o dropdown */
-    }
     
     @media (width > 1024px) {
         .desktop-only {

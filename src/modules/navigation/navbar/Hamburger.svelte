@@ -1,6 +1,5 @@
 <script>
-import Rrss from 'src/modules/brand/components/Rrss.svelte';
-import SurveyButton from 'src/modules/survey/components/SurveyButton.svelte';
+import CtaButton from 'src/components/ui/CtaButton.svelte';
 import {fade, slide} from 'svelte/transition';
 
 
@@ -33,29 +32,71 @@ function closeMenu() {
             <i class="fas fa-times"></i>
           </button>
           
-          <SurveyButton/>
+          <span class="menu__category">En esta pagina</span>
           
-          <span class="menu__category">Soluciones energeticas</span>
+          <a class="menu__link" href="#stack" type="button">Tech Stack</a>
+          <a class="menu__link" href="#intereses" type="button">Intereses</a>
+          <a class="menu__link" href="#lumber" type="button">Lumber Jack</a>
           
-          <a class="menu__link" href="/">Viviendas</a>
-          <a class="menu__link" href="/">Negocios</a>
-          <a class="menu__link" href="/">Empresas</a>
-          
-          <span class="menu__category">Recursos</span>
-          
-          <a class="menu__link" href="/">Informacion de productos</a>
-          <a class="menu__link" href="/">Guias de energia limpia</a>
-          <a class="menu__link" href="/">Blog</a>
-          <a class="menu__link" href="/">Noticias</a>
-          
-          <span class="menu__category">Sobre Nosotros</span>
-          <a class="menu__link" href="/">Red de Instaladores</a>
-          <a class="menu__link" href="/">Contacto</a>
-          
-          <div style="--icon-color: var(--color-neutral-400);">
-          <Rrss/>
+          <span class="menu__category">Redes Personales</span>
+
+          <div class="rrss-container">
+              <a target="_blank" href="https://www.discord.gg/4NFk6TamAB" class="rrss-link">
+                  <img src="/icons/x-dark.svg" alt="x-logo"/>
+              </a>
+              <a target="_blank" href="https://www.instagram.com/dager.32/" class="rrss-link">
+                  <img src="/icons/instagram_dark.svg" alt="instagram-logo"/>
+              </a>
+              <a target="_blank" href="https://www.linkedin.com/in/mariano-luis-villa/" class="rrss-link">
+                <img src="/icons/linkedin.svg" alt="linkeding-logo"/>
+              </a>
+              <a target="_blank" href="https://github.com/MarianoVilla" class="rrss-link">
+                  <img src="/icons/Github_dark.svg" alt="github-logo"/>
+              </a>
           </div>
-          
+
+          <span class="menu__category">Contenido Principal</span>
+
+          <div class="rrss-container">
+              <a target="_blank" href="www.youtube.com/@DotDager" class="rrss-link">
+                <img src="/icons/youtube.svg" alt="youtube-logo"/>
+              </a>
+              <a target="_blank" href="https://www.twitch.tv/dagerxiv" class="rrss-link">
+                  <img src="/icons/twitch.svg" alt="twitch-logo"/>
+              </a>
+              <a target="_blank" href="https://www.tiktok.com/@elantrodedager" class="rrss-link">
+                  <img src="/icons/tiktok.svg" alt="tiktok-logo"/>
+              </a>
+              <a target="_blank" href="https://www.discord.gg/4NFk6TamAB" class="rrss-link">
+                  <img src="/icons/discord.svg" alt="discord-logo"/>
+              </a>
+          </div>
+
+          <span class="menu__category">Contenido Musical</span>
+
+          <div class="rrss-container">
+            <a target="_blank" href="https://www.youtube.com/c/DagerMusic" class="rrss-link">
+              <img src="/icons/youtube.svg" alt="youtube-logo"/>
+            </a>
+            <a target="_blank" href="https://open.spotify.com/intl-es/artist/6bkClBMJd4qKxJp0J5vHsz?si=mbfNHqvBT9SKSQ-ZNhXHJg&nd=1" class="rrss-link">
+                <img src="/icons/spotify.svg" alt="spotify-logo"/>
+            </a>
+          </div>
+
+          <span class="menu__category">Contenido variado</span>
+
+          <div class="rrss-container">
+            <a target="_blank" href="https://www.youtube.com/@DagerLive" class="rrss-link">
+              <img src="/icons/youtube.svg" alt="youtube-logo"/>
+            </a>
+            <a target="_blank" href="https://www.youtube.com/c/DagerXIV" class="rrss-link">
+              <img src="/icons/youtube.svg" alt="youtube-logo"/>
+            </a>
+          </div>
+
+
+          <p>*Este boton no da su consentimiento*</p>
+          <CtaButton/>
         </div>
   </div>
   
@@ -65,6 +106,31 @@ function closeMenu() {
 
 
 <style>
+
+p{
+  font-size: var(--font-size-small);
+  font-weight: 300;
+  margin-top: 1rem;
+  color: #823686;
+  margin-bottom: 0.5rem;
+
+}
+
+.rrss-container {
+    display: flex;
+    align-items: center;
+    gap:15px;
+}
+
+.rrss-link img {
+    height: 20px;
+    width: 20px;
+    filter: grayscale(1);
+}
+
+.rrss-link img:hover {
+    filter: grayscale(0);
+}
 
 button {
   background: none;
@@ -82,47 +148,47 @@ button {
   height: 100vh;
   width: 80%;
   max-width: 400px;
-  background-color: var(--color-neutral-100);
+  background-color: #3d103f;
   z-index: 100;
 }
 
 .menu__open-button {
-  color: var(--color-neutral-400);
+  color: var(--color-neutral-200);
 }
 
 .menu__close-button {
   position: absolute;
-  top: 1rem;
-  right: 2rem;
-  color: var(--color-neutral-400);
+  top: 2rem;
+  right: 3rem;
+  color: var(--color-neutral-200);
 }
 
 .menu__items {
   display: flex;
-  color: var(--color-neutral-300);
+  color: var(--color-neutral-100);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.25rem;
   white-space: nowrap;
 }
 
 .menu__items > div {
-  margin-top: 3rem;
+  margin-top: 0.5rem;
 }
 
 .menu__link {
-  color: var(--color-neutral-400);
+  color: var(--color-neutral-100);
   text-decoration: none;
   font-size: var(--font-size-base);
 }
 
 .menu__category {
   font-size: var(--font-size-small);
-  font-weight: bolder;
+  font-weight: 400;
   margin-top: 1rem;
   text-transform: uppercase;
-  color: var(--color-green-300);
+  color: rgb(255, 136, 0);
 }
 
 .overlay {
