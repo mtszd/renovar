@@ -1,0 +1,46 @@
+---
+interface Props {
+    image: string;
+    alt: string;
+}
+
+const { image, alt } = Astro.props;
+---
+
+<div class="logo-item">
+    <img src={ image } alt= { alt }/>
+</div>
+
+<style>
+
+    .logo-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-item img {        
+        width: 80px;
+        object-fit: contain;
+    }
+
+
+@media (min-width: 576px) {
+    .logo-item img {
+        width: 90px;
+    }
+}
+
+@media (min-width: 992px) {
+    .logo-item img {
+        width: 100px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .logo-item img {
+        width: 120px;
+    }
+}
+
+</style>

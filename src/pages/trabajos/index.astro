@@ -1,0 +1,101 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getAllWorks } from '../../data/works';
+
+const works = getAllWorks();
+---
+
+<MainLayout title="Trabajos Realizados">
+    <main class="works-container">
+        <h1>Nuestros Trabajos</h1>
+        
+        <div class="works-grid">
+            {works.map((work) => (
+                <a href={`/trabajos/${work.slug}`} class="work-card">
+                    <div class="image-container">
+                        <img
+                            src={`/img/works/${work.slug}/thumbs/1.webp`}
+                            alt={`Instalación solar en ${work.location}`}
+                            loading="lazy"
+                        />
+                    </div>
+                    <h2>{work.title}</h2>
+                    <p class="work-description">{work.description}</p>
+                    <p class="work-location">{work.location} - {work.technicalDetails.kw}kW</p>
+                </a>
+            ))}
+        </div>
+    </main>
+</MainLayout>
+
+<style>
+    .works-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+    }
+
+    .works-grid {
+        columns: 1;
+        column-gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+        .works-grid {
+            columns: 2;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .works-grid {
+            columns: 3;
+        }
+    }
+
+    .work-card {
+        display: block;
+        break-inside: avoid;
+        margin-bottom: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .image-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .work-card:hover .image-container img {
+        transform: scale(1.05);
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .work-description {
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+
+    .work-location {
+        font-size: 0.875rem;
+        color: #888;
+    }
+</style>

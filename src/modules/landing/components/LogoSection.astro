@@ -1,0 +1,93 @@
+---
+import LogoBrand from "../components/LogoBrand.astro"
+---
+
+<section class="logo-section">
+
+    <h2 class="logo-brand__title">Used by the world's leading companies</h2>
+
+    <div class="logo-brand">
+        <div class="logo-brand__container">
+            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
+            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
+            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
+            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
+            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
+            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
+        </div>
+    </div>
+
+</section>
+
+<style>
+.logo-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #424242;
+    padding: 2rem;
+}
+
+.logo-brand__title {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fafafa;
+    padding: 0 1rem;
+}
+
+.logo-brand {
+    width: 100%;
+    max-width: 980px;
+    padding: 1rem;
+}
+
+.logo-brand__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+@media (min-width: 576px) {
+.logo-brand__container {
+    gap: 1.25rem;
+}
+
+.logo-brand__title {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+}
+
+@media (min-width: 992px) {
+.logo-brand__container {
+    gap: 1.5rem;
+}
+
+.logo-brand__title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+}
+
+@media (min-width: 1280px) {
+.logo-brand__container {
+    gap: 2rem;
+}
+}
+
+@media (min-width: 1440px) {
+.logo-brand {
+    padding: 2rem;
+}
+}
+</style>

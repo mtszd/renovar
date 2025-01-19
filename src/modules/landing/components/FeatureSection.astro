@@ -1,0 +1,116 @@
+  <section class="feature-section">
+    <div class="feature-section__container">
+      <div class="feature">
+        <span class="feature__tagline">Tagline</span>
+        <h2 class="feature__heading">Medium length section heading goes here</h2>
+        <p class="feature__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+      </div>
+      
+      <div class="feature">
+        <span class="feature__tagline">Tagline</span>
+        <h2 class="feature__heading">Medium length section heading goes here</h2>
+        <p class="feature__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+      </div>
+      
+      <div class="feature">
+        <span class="feature__tagline">Tagline</span>
+        <h2 class="feature__heading">Medium length section heading goes here</h2>
+        <p class="feature__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+      </div>
+      
+      <div class="feature">
+        <span class="feature__tagline">Tagline</span>
+        <h2 class="feature__heading">Medium length section heading goes here</h2>
+        <p class="feature__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  /* Base styles - Mobile first */
+  .feature-section {
+    width: 100%;
+    height: 100%;
+    padding: 2rem 1rem;
+  }
+  
+  .feature-section__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .feature {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .feature__tagline {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  .feature__heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+  }
+  
+  .feature__text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Tablet breakpoint (576px) */
+  @media screen and (min-width: 576px) {
+    .feature-section__container {
+      padding: 0 1.5rem;
+    }
+  
+    .feature {
+      width: calc(50% - 1rem);
+    }
+  }
+  
+  /* Desktop breakpoint (992px) */
+  @media screen and (min-width: 992px) {
+    .feature-section {
+      padding: 3rem 2rem;
+    }
+  
+    .feature-section__container {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 2.5rem;
+      padding: 0 2rem;
+    }
+  
+    .feature {
+      width: 25%;
+    }
+  }
+  
+  /* Large Desktop breakpoint (1280px) */
+  @media screen and (min-width: 1280px) {
+    .feature-section__container {
+      gap: 3rem;
+      padding: 0 2.5rem;
+    }
+  }
+  
+  /* Extra Large Desktop breakpoint (1440px) */
+  @media screen and (min-width: 1440px) {
+    .feature-section__container {
+      padding: 0 3rem;
+    }
+  }
+  </style>

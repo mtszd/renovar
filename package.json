@@ -7,21 +7,25 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "thumbnails": "node --loader ts-node/esm src/scripts/generateThumbnails.ts"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "^2.3.1",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.4",
-    "@astrojs/svelte": "^5.4.0",
-    "@types/three": "^0.170.0",
-    "svelte": "^4.2.15",
-    "three": "^0.170.0",
-    "typescript": "^5.4.5"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.0.5",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/svelte": "^7.0.3",
+    "nodemailer": "^6.9.16",
+    "photoswipe": "^5.4.4",
+    "sharp": "^0.33.5",
+    "svelte": "^5.17.3"
   },
   "devDependencies": {
-    "@types/node": "^20.14.11",
-    "astro": "^4.16.14"
+    "@types/node": "^20.17.14",
+    "@types/nodemailer": "^6.4.17",
+    "astro": "^5.1.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
   }
 }

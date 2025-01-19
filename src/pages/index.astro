@@ -1,45 +1,15 @@
 ---
 import MainLayout from "src/layouts/MainLayout.astro";
 import Hero from "src/modules/landing/components/Hero.astro";
-import RenderSection from "src/modules/three/RenderSection.svelte";
-import Technologies from "src/modules/landing/components/Technologies.astro";
-import Lumberjack from "src/modules/landing/Lumberjack.astro";
-import Bento from "src/modules/landing/components/Bento.astro";
+import FeatureSection from "src/modules/landing/components/FeatureSection.astro";
+import LogoSection from "src/modules/landing/components/LogoSection.astro";
 ---
 
 <MainLayout>
-    <main>
-        <Hero/>
-        <Technologies/>
-        <div id="projects">
-            <Bento/>
-        </div>
-        <div id="intereses" class="render-container">
-            <RenderSection selectedModel="guitar" client:visible />
-            <RenderSection selectedModel="cat" reverse client:visible />
-            <RenderSection selectedModel="philosoraptor" client:visible />
-            <RenderSection selectedModel="pickle" reverse client:visible />
-        </div>
-        <div id="lumber">
-            <Lumberjack/>
-        </div>
-    </main>
+    <Hero/>
+    <FeatureSection/>
+    <LogoSection/>
 </MainLayout>
 
 <style>
-    .render-container{
-        padding-bottom: 1rem;
-    }
-
-    [id] {
-        scroll-margin-top: 80px;
-    }
-
-    @media (max-width: 995px){
-
-        .render-container{
-            padding-bottom: 6rem;
-        }
-    }
-
 </style>

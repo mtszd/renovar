@@ -1,313 +1,106 @@
-<section class="main-container">
-    <div class="inner-container">
-        <div class="text-wrapper">
-            <div class="hero-content">
-                <h1>Mariano Luis Villa</h1>
-
-                <span class="speach"><span class="text-gradient">Hokage del Backend,</span> <br> genin del Front</span> 
-                
-                <p>Escribo mejores lineas que las que tomo, de veras!</p>
-                <div class="button-wrapper">
-                <div class="items-wrapper">
-                    <p class="items">Senior full stack developer</p>
-                    <p class="items">Creador de contenido</p>
-                    <p class="items">Apasionado por los gatos, la música y la filosofía</p>
-                    <p class="items">Contador serial de chistes de mierda.</p>
-                </div>
-                </div>
-
-                <div class="tech-container">
-                    <div class="tech-item">
-                        <a target="_blank" href="https://www.linkedin.com/in/mariano-luis-villa/" class="rrss">
-                            <img src="/icons/linkedin.svg"/>
-                        </a>
-                        <a target="_blank" href="https://github.com/MarianoVilla" class="rrss">
-                            <img src="/icons/Github_dark.svg"/>
-                        </a>
-                        <a target="_blank" href="https://www.instagram.com/dager.32/" class="rrss">
-                            <img src="/icons/instagram_dark.svg"/>
-                        </a>
-                        <a target="_blank" href="https://www.discord.gg/4NFk6TamAB" class="rrss">
-                            <img src="/icons/discord.svg"/>
-                        </a>
-                    </div>
-                </div>
+<body>
+    <section class="hero">
+        <div class="hero__content">
+            <h1 class="hero__title">Medium length hero heading goes here</h1>
+            <p class="hero__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+            <div class="hero__buttons">
+                <button class="button button--primary">Button</button>
+                <button class="button button--secondary">Button</button>
             </div>
         </div>
-
-        <div class="image-wrapper">
-            <div class="hero-image">        
-            </div>
-        </div>
-    </div>
-    
-
-</section>
+    </section>
+</body>
 
 <style>
 
-.tech-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap:12px;
-    max-width: 8rem;
-}
-
-.tech-item img {
-  width: 24px;
-  height: 24px;
-  filter: grayscale(1);
-}
-
-.tech-item img:hover {
-  transform: scale(1.1);
-  filter: grayscale(0);
-}
-
-.tech-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.main-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.inner-container {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: auto;
-    padding: 4rem 0 0 0;
-    border-radius: 30px;
-
-}
-
-
-.text-wrapper, .image-wrapper {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
-    max-width: 380px;
-    color: var(--color-text-dark);
-    gap: 1rem;
-    margin: 1rem;
-}
-
-.hero-image {
-    display: flex;
-    width: 150px;
-    height: 150px;
-    margin: 2rem 0;
-    border-radius: 50%;
-    background-image: url('/img/hero-image.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-h1 {
-    font-family: var(--font-family-text);
-    font-size: var(--font-size-base);
-    text-transform: uppercase;
-    color: #f0f0f0;
-    font-weight: 500;
-    line-height: 1rem;
-}
-
-p {
-    color: aliceblue;
-    line-height: 1.6;
-    margin-bottom: 0rem;
-    font-size: var(--font-size-small);
-    
-}
-
-.speach {
-    display: inline;
-    font-family: var(--font-family-text);
-    font-size: var(--font-size-medium);
-    color:white;
-    font-weight: 500;
-    line-height: 1.5;
-}
-
-.items-wrapper{
-    flex-direction: column;
-    display: none;
-}
-
-.items {
-    
-    font-size: var(--font-size-small);
-    color: #d0d0d0;
-    margin: 2px;
-    line-height: 16px;
-    padding-left: 16px;
-    position: relative;
-}
-
-.items::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: rgb(255, 136, 0);
-}
-
-.text-gradient {
-    background: var(--color-text-gradient);
-    background-size: 200%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: animate-gradient 10s linear infinite;
-    will-change: background-position;
-}
-
-.button-wrapper {
-    display: flex;
-    flex-direction: column;
-    font-size: var(--font-size-small);
-    width: 100%;
-    align-items: center;
-    gap: 1rem;
-}
-
-a {
-    color: var(--color-neutral-400);
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    width: 100%;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--color-neutral-500);
-    transform: scale(1.025);
-}
-
-
-
-@media (min-width: 992px) {
-
-    .tech-item {
-        justify-content: start;
+    .hero {
+        min-height: 100vh;
+        width: 100%p;
+        background-color: #424242;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
     }
 
-    .tech-container {
-    justify-content: start;
+    .hero__content {
+        max-width: 90%;
+        margin: 0 auto;
     }
 
-    .inner-container {
-        flex-direction: row;
-        height: 80vh;
+    .hero__title {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        margin-bottom: 1rem;
+        font-weight: 500;
     }
 
-    .text-wrapper, .image-wrapper {
-        flex: 1;
-        padding: 3rem;
+    .hero__text {
+        font-size: clamp(0.875rem, 3vw, 1rem);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        opacity: 0.9;
     }
 
-    .hero-content{
-        text-align: left;
+    .hero__buttons {
+        display: flex;
         gap: 1rem;
+        justify-content: center;
     }
 
-    .hero-image {
-        display: flex;
-        width: 300px;
-        height: 300px;
+    .button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
     }
 
-    .items-wrapper{
-        display: flex;
+    .button:hover {
+        opacity: 0.9;
     }
 
-    h1 {
-        font-size: calc(var(--font-size-medium)*0.8);
-        line-height: 2rem;
+    .button--primary {
+        background-color: white;
+        color: #424242;
     }
 
-    .speach {
-        font-size: var(--font-size-large);
-        line-height: 32px;
+    .button--secondary {
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
     }
 
-    p {
-        font-size: calc(var(--font-size-base)*0.9);
-        line-height: 1.6rem;
-        width: 360px;
+    /* Responsive breakpoints */
+    @media (min-width: 576px) {
+        .hero__content {
+            max-width: 80%;
+        }
     }
 
-    .button-wrapper {
-        flex-direction: row;
-        
+    @media (min-width: 992px) {
+        .hero__content {
+            max-width: 70%;
+        }
+
+        .hero__text {
+            max-width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
-    .button-wrapper button, .button-wrapper a {
-        width: auto;
+    @media (min-width: 1280px) {
+        .hero__content {
+            max-width: 60%;
+        }
     }
 
-}
-
-@media (min-width: 1280px) {
-    
-    .text-wrapper, .image-wrapper {
-        padding: 5rem;
+    @media (min-width: 1440px) {
+        .hero__content {
+            max-width: 50%;
+        }
     }
-
-    .hero-content {
-        width: 650px;  
-        gap:1rem;      
-    }
-
-    .hero-image {
-        display: flex;
-        width: 400px;
-        height: 400px;
-    }
-
-    .speach {
-        width: 500px;
-        font-size: var(--font-size-xlarge);
-        line-height: 44px;
-    }
-
-    h1 {
-        font-size: var(--font-size-medium);
-        
-    }
-
-    p {
-        font-size: var(--font-size-base);
-        width: 500px;
-    }
-}
-
 </style>

@@ -1,0 +1,107 @@
+---
+import MainLayout from 'src/layouts/MainLayout.astro';
+import LightboxGallery from '../../components/gallery/LightboxGallery.svelte';
+import { getWorkBySlug, type Work } from '../../data/works';
+
+// Define las props del componente
+interface LightboxGalleryProps {
+    galleryId: string;
+    slug: string;
+    imageCount: number;
+    'client:load': boolean;
+}
+
+export async function getStaticPaths() {
+    const works = await import('../../data/works').then(m => m.getAllWorks());
+    return works.map(work => ({
+        params: { slug: work.slug },
+        props: { work },
+    }));
+}
+
+interface Props {
+    work: Work;
+}
+
+const { work } = Astro.props;
+
+if (!work) {
+    return Astro.redirect('/404');
+}
+
+// Cast explícito de las props
+const galleryProps: LightboxGalleryProps = {
+    'client:load': true,
+    galleryId: `gallery-${work.slug}`,
+    slug: work.slug,
+    imageCount: work.imageCount
+};
+---
+
+<MainLayout title={work.title}>
+    <main class="work-detail">
+        <div class="work-header">
+            <h1>{work.title}</h1>
+            <p class="description">{work.description}</p>
+            <div class="technical-details">
+                <div>
+                    <span>Ubicación:</span>
+                    <p>{work.location}</p>
+                </div>
+                <div>
+                    <span>Potencia:</span>
+                    <p>{work.technicalDetails.kw}kW</p>
+                </div>
+                <div>
+                    <span>Paneles:</span>
+                    <p>{work.technicalDetails.panels} unidades</p>
+                </div>
+            </div>
+        </div>
+        
+        <LightboxGallery 
+            client:load
+            galleryId={`gallery-${work.slug}`}
+            slug={work.slug}
+            imageCount={work.imageCount}
+        />
+    </main>
+</MainLayout>
+
+<style>
+    .work-detail {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    .work-header {
+        margin-bottom: 3rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        font-size: 1.125rem;
+        color: #666;
+        margin-bottom: 1rem;
+    }
+
+    .technical-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .technical-details span {
+        font-weight: 600;
+    }
+
+    .technical-details p {
+        color: #666;
+    }
+</style>
