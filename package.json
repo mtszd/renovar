@@ -1,5 +1,5 @@
 {
-  "name": "sunvey",
+  "name": "renovar",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -16,16 +16,15 @@
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/svelte": "^7.0.3",
-    "nodemailer": "^6.9.16",
     "photoswipe": "^5.4.4",
-    "sharp": "^0.33.5",
     "svelte": "^5.17.3"
   },
   "devDependencies": {
     "@types/node": "^20.17.14",
-    "@types/nodemailer": "^6.4.17",
     "astro": "^5.1.6",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "sharp": "^0.33.5"
   }
 }
+
