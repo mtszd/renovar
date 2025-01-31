@@ -1,20 +1,18 @@
-<body>
-    <section class="hero">
-        <div class="hero__content">
-            <h1 class="hero__title">Medium length hero heading goes here</h1>
-            <p class="hero__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
-            <div class="hero__buttons">
-                <button class="button button--primary">Button</button>
-                <button class="button button--secondary">Button</button>
-            </div>
-        </div>
-    </section>
-</body>
+---
+import EmailContact from "src/components/form/EmailContact.astro"
+---
 
+<section class="hero">    
+    <div class="hero__content">
+        <h1 class="hero__title">Medium length hero heading goes here</h1>
+        <p class="hero__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+    <EmailContact/>
+    </div>
+</section>
 <style>
 
     .hero {
-        min-height: 100vh;
+        min-height: 80vh;
         width: 100%p;
         background-color: #424242;
         color: white;
