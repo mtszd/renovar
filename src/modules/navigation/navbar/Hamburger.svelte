@@ -32,9 +32,11 @@ function closeMenu() {
           </button>
           
           
-          <a class="menu__link" href="#projects" type="button">Link 1</a>
-          <a class="menu__link" href="#intereses" type="button">Link 2</a>
-          <a class="menu__link" href="#lumber" type="button">Link 3</a>
+          <a class="menu__link" href="/obras" type="button">Obras</a>
+          <a class="menu__link" href="/soluciones" type="button">Soluciones</a>
+          <a class="menu__link" href="/faq" type="button">F.A.Q</a>
+          <a class="menu__link" href="/nosotros" type="button">Nosotros</a>
+          <a class="menu__link" href="/contacto" type="button">Contacto</a>
           
 
 
@@ -80,13 +82,22 @@ button {
   color: var(--color-neutral-200);
 }
 
+
+.menu__open-button i{
+  font-size: xx-large;
+}
+
+.menu__close-button i{
+  font-size: xx-large;
+}
+
 .menu__items {
   display: flex;
   color: var(--color-neutral-100);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.25rem;
+  gap: 1rem;
   white-space: nowrap;
 }
 

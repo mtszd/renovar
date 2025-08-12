@@ -43,7 +43,7 @@
                 class="gallery-item"
             >
                 <img 
-                    src={`/img/works/${slug}/thumbs/${i + 1}.webp`}
+                    src={`/img/works/${slug}/thumb/${i + 1}.webp`}
                     alt={`Instalación solar en ${slug}`}
                     loading="lazy"
                 />

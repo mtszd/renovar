@@ -1,101 +1,125 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-import { getAllWorks } from '../../data/works';
-
-const works = getAllWorks();
+import MainLayout from 'src/layouts/MainLayout.astro';
+import WorkCard from 'src/modules/works/components/WorkCard.svelte';
+import { works } from 'src/data/works.js';
+import type { Work } from 'src/data/works.js';
 ---
 
-<MainLayout title="Trabajos Realizados">
-    <main class="works-container">
-        <h1>Nuestros Trabajos</h1>
-        
-        <div class="works-grid">
-            {works.map((work) => (
-                <a href={`/trabajos/${work.slug}`} class="work-card">
-                    <div class="image-container">
-                        <img
-                            src={`/img/works/${work.slug}/thumbs/1.webp`}
-                            alt={`Instalación solar en ${work.location}`}
-                            loading="lazy"
-                        />
-                    </div>
-                    <h2>{work.title}</h2>
-                    <p class="work-description">{work.description}</p>
-                    <p class="work-location">{work.location} - {work.technicalDetails.kw}kW</p>
-                </a>
-            ))}
-        </div>
-    </main>
+<MainLayout title="Nuestros Trabajos - Energía Solar">
+  <section class="works-gallery">
+    <div class="works-text__container">
+      <h1 class="works-gallery__title">Obras realizadas</h1>
+      <p class="works-gallery__subtitle">
+        Descubre los proyectos de energía solar que hemos realizado,
+        transformando espacios con soluciones sustentables.
+      </p>
+    </div>
+
+    <div class="works-grid">
+      {works.map((work: Work) => (
+        <WorkCard
+          work={work}
+          href={`/trabajos/${work.slug}`}
+          client:load
+        />
+      ))}
+    </div>
+  </section>
 </MainLayout>
 
 <style>
-    .works-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
-    }
+/* (Conserva el bloque CSS original sin cambios) */
+.works-gallery {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-    h1 {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 2rem;
-    }
+.works-text__container {
+  height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-lg);
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
 
-    .works-grid {
-        columns: 1;
-        column-gap: 1.5rem;
-    }
+.works-gallery__title {
+  font-family: var(--font-family-title);
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-dark);
+}
 
-    @media (min-width: 768px) {
-        .works-grid {
-            columns: 2;
-        }
-    }
+.works-gallery__subtitle {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-medium);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
 
-    @media (min-width: 1024px) {
-        .works-grid {
-            columns: 3;
-        }
-    }
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-3xl);
+}
 
-    .work-card {
-        display: block;
-        break-inside: avoid;
-        margin-bottom: 1.5rem;
-        text-decoration: none;
-        color: inherit;
-    }
+@media (width <= 380px) {
+  .works-gallery {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+  
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .works-gallery__title {
+    font-size: var(--font-size-large);
+  }
+  
+  .works-gallery__subtitle {
+    font-size: var(--font-size-base);
+  }
+}
 
-    .image-container {
-        position: relative;
-        overflow: hidden;
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-    }
+@media (width > 576px) {
+  .works-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
 
-    .image-container img {
-        width: 100%;
-        height: auto;
-        transition: transform 0.3s ease;
-    }
+@media (width > 992px) {
+  .works-gallery {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+  }
+  
+  .works-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+  }
+}
 
-    .work-card:hover .image-container img {
-        transform: scale(1.05);
-    }
+@media (width > 1440px) {
+  .works-grid {
+    width: 1440px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
-    h2 {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-    }
-
-    .work-description {
-        color: #666;
-        margin-bottom: 0.5rem;
-    }
-
-    .work-location {
-        font-size: 0.875rem;
-        color: #888;
-    }
+@media (width > 1440px) {
+  .works-gallery {
+    max-width: 1400px;
+  }
+}
 </style>

@@ -1,0 +1,116 @@
+<div class="slider-wrapper no-filter" role="region" aria-label="Marcas asociadas">
+  <div class="slider" style="--quantity: 13;">
+    <div class="list">
+      <div class="item" style="--position: 1"><img src="/img/logos/brands/amerisolar.webp" alt="Amerisolar" /></div>
+      <div class="item" style="--position: 2"><img src="/img/logos/brands/enertik.webp" alt="Enertik" /></div>
+      <div class="item" style="--position: 3"><img src="/img/logos/brands/epever.webp" alt="EPEVER" /></div>
+      <div class="item" style="--position: 4"><img src="/img/logos/brands/goodwe.webp" alt="GoodWe" /></div>
+      <div class="item" style="--position: 5"><img src="/img/logos/brands/growatt.webp" alt="Growatt" /></div>
+      <div class="item" style="--position: 6"><img src="/img/logos/brands/invt.webp" alt="INVT" /></div>
+      <div class="item" style="--position: 7"><img src="/img/logos/brands/jinko.webp" alt="Jinko Solar" /></div>
+      <div class="item" style="--position: 8"><img src="/img/logos/brands/mizu.webp" alt="Mizu" /></div>
+      <div class="item" style="--position: 9"><img src="/img/logos/brands/pylontech.webp" alt="Pylontech" /></div>
+      <div class="item" style="--position: 10"><img src="/img/logos/brands/ritar.webp" alt="Ritar" /></div>
+      <div class="item" style="--position: 11"><img src="/img/logos/brands/trina.webp" alt="Trina Solar" /></div>
+      <div class="item" style="--position: 12"><img src="/img/logos/brands/veichi.webp" alt="Veichi" /></div>
+      <div class="item" style="--position: 13"><img src="/img/logos/brands/victron-energy.svg" alt="Victron Energy" /></div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  :where(.slider-wrapper, .slider, .slider .list, .slider .item){ filter: none !important; }
+
+  .slider-wrapper{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-block: var(--spacing-lg, 1.5rem);
+    /* Aislar stacking context para evitar herencia accidental de filtros */
+    isolation: isolate;
+  }
+
+  .slider{
+    --logo-height: 120px; /* altura fija */
+    --track-padding-y: var(--spacing-sm, 0.5rem);
+    --slot-width: var(--width, calc(var(--logo-height) * 1.8));
+
+    height: calc(var(--logo-height) + (var(--track-padding-y) * 2));
+    min-height: calc(var(--logo-height) + (var(--track-padding-y) * 2));
+    padding-block: var(--track-padding-y);
+    overflow: hidden;
+
+    /* Si sospechas conflicto con filtros/hover, comenta estas dos líneas: */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  }
+
+  .slider .list{
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--slot-width) * var(--quantity, 13));
+    position: relative;
+    height: 100%;
+  }
+
+  .slider .list .item{
+    width: var(--slot-width);
+    height: 100%;
+    position: absolute;
+    left: 100%;
+    display: grid;
+    place-items: center;
+    padding-inline: var(--spacing-md, 1rem);
+    animation: autoRun 26s linear infinite;
+    animation-delay: calc((26s / var(--quantity, 13)) * (var(--position) - 1) - 26s) !important;
+    /* permitir hover fiable sobre la imagen */
+    pointer-events: auto;
+  }
+
+  .slider .list .item img{
+    display: block;
+    width: auto;
+    height: var(--logo-height);
+    max-height: var(--logo-height);
+
+    /* Aplica grayscale SOLO al <img>, nunca al contenedor */
+    filter: grayscale(1);
+    opacity: .92;
+    transition: filter .3s ease, opacity .3s ease, transform .2s ease;
+    will-change: filter, transform;
+    /* fuerza su propio contexto de composición */
+    transform: translateZ(0);
+  }
+
+  @keyframes autoRun{
+    from { left: 100%; }
+    to   { left: calc(var(--slot-width) * -1); }
+  }
+
+  /* Hover: pausa el carril y quita el gris de ESA imagen */
+  .slider:hover .item{ animation-play-state: paused !important; }
+  .slider .item:hover img{
+    filter: grayscale(0) !important;
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+
+  /* Fallback accesibilidad */
+  @media (prefers-reduced-motion: reduce){
+    .slider .list .item{
+      animation: none !important;
+      position: relative;
+      left: 0;
+    }
+    .slider .list{
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(180px, 1fr);
+      gap: var(--spacing-lg, 1.5rem);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .slider .list::-webkit-scrollbar{ display: none; }
+  }
+</style>

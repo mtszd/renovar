@@ -2,7 +2,7 @@
 
 :root {
     /* Fuentes */
-	--font-family-brand: 'Fugaz One', sans-serif;
+	--font-family-brand: 'Montserrat', sans-serif;
     --font-family-text: 'Poppins', sans-serif;
 	--font-family-title: 'Merriweather', serif;
 
@@ -15,8 +15,27 @@
 	--font-size-xlarge: 2.441rem;
 	--font-size-xxlarge: 3.052rem;
 	--font-size-xxxlarge: 3.815rem;
-			
-}
+
+	/* NUEVAS VARIABLES - AGREGAR DESPUÉS DE LAS FUENTES EXISTENTES */
+
+	/* Espaciado usando tu escala */
+	--spacing-xs: 0.25rem;    /* 4px */
+	--spacing-sm: 0.5rem;     /* 8px */
+	--spacing-md: 1rem;       /* 16px */
+	--spacing-lg: 1.5rem;     /* 24px */
+	--spacing-xl: 2rem;       /* 32px */
+	--spacing-2xl: 3rem;      /* 48px */
+	--spacing-3xl: 4rem;      /* 64px */
+
+	/* Pesos de fuente */
+	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+
+	
+				
+	}
 
 /* Reset CSS */
 html, button, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -87,6 +106,16 @@ html {
 	white-space: nowrap;
 }
 
+/* Clases utilitarias para textos */
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+.text-muted { color: var(--color-text-muted); }
+.text-white { color: var(--color-text-white); }
+
+/* Clases utilitarias para fondos */
+.bg-primary { background-color: var(--color-primary); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-card { background-color: var(--color-bg-card); }
 /* Animaciones */
 
 .appear {
@@ -135,7 +164,7 @@ html {
 }
 
 
-@media (width > 1280px) {
+@media (width > 1200px) {
 
 }
 

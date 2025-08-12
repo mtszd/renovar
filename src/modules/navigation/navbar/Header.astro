@@ -4,21 +4,67 @@ import HeaderNav from './HeaderNav.astro';
 import Hamburger from './Hamburger.svelte';
 ---
 
+<script>
+  let previousScroll = 0;
+  let navbar: HTMLElement | null = null;
+
+  if (typeof window !== "undefined") {
+    window.addEventListener('DOMContentLoaded', () => {
+      navbar = document.querySelector('.navbar');
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+        if (navbar) {
+          if (currentScroll > previousScroll && currentScroll > 100) {
+            navbar.classList.remove('visible');
+          } else if (currentScroll < previousScroll) {
+            navbar.classList.add('visible');
+          }
+        }
+        previousScroll = currentScroll;
+      });
+    });
+  }
+</script>
+
 <header>
-    <div class="container">
-        <div class="logo-wrapper">
-            <Logo />
+    <nav class="navbar visible">
+        <div class="container">
+            <div class="logo-wrapper">
+                <Logo />
+            </div>
+            <div class="nav-wrapper">
+                <HeaderNav />
+            </div>
+            <div class="mobile-only">
+                <Hamburger client:visible />
+            </div>
         </div>
-        <div class="nav-wrapper">
-            <HeaderNav />
-        </div>
-        <div class="mobile-only">
-            <Hamburger client:visible />
-        </div>
-    </div>
+    </nav>
 </header>
 
 <style>
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 90px;
+        background-color: white;
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    .navbar.visible {
+        transform: translateY(0);
+    }
+
+    .navbar:not(.visible) {
+        transform: translateY(-100%);
+    }
+
 
     header {
         display: flex;
@@ -35,7 +81,7 @@ import Hamburger from './Hamburger.svelte';
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 60%;
+        width: 90%;
     }
 
     .logo-wrapper {
@@ -51,6 +97,14 @@ import Hamburger from './Hamburger.svelte';
         display: block;
     }
 
+
+    @media (width > 576px) {
+
+        .container {
+            width: 80%;
+        }
+    }
+
     @media (width > 1024px) {
         .desktop-only {
             display: block;
@@ -58,5 +112,15 @@ import Hamburger from './Hamburger.svelte';
         .mobile-only {
             display: none;
         }
+        .container {
+            width: 80%;
+        }
     }
+    
+    @media (width > 1440px) {
+
+        .container {
+            width: 65%;
+        }
+    }  
 </style>

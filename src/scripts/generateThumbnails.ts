@@ -51,7 +51,7 @@ async function generateThumbnails(folderName: string): Promise<void> {
                     fit: 'fill', // Forzar el tamaño exacto ya que sabemos que son 16:9
                 })
                 .webp({ 
-                    quality: 60,    // Calidad reducida para miniaturas
+                    quality: 80,    // Calidad reducida para miniaturas
                     effort: 6,      // Mayor esfuerzo de compresión
                     lossless: false
                 })

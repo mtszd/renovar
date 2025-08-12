@@ -1,0 +1,58 @@
+---
+interface Props {
+    image: string;
+    alt: string;
+    sizeSm?: number;
+    sizeMd?: number;
+    sizeLg?: number;
+}
+
+const { image, alt, sizeSm = 90, sizeMd = 100, sizeLg = 120 } = Astro.props;
+---
+
+<div class="logo-item">
+    <img src={ image } alt= { alt } style={`--size-sm: ${sizeSm}px; --size-md: ${sizeMd}px; --size-lg: ${sizeLg}px;`}
+    />
+</div>
+
+<style>
+
+    .logo-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .logo-item img {        
+        width: var(--size-sm);
+        object-fit: contain;
+        filter: grayscale(1);
+        transition: filter 0.3s ease;
+    }
+
+    .logo-item img:hover {        
+        filter: grayscale(0);
+    }
+
+
+
+
+    @media (min-width: 576px) {
+        .logo-item img {
+            width: var(--size-sm);
+        }
+    }
+
+    @media (min-width: 992px) {
+        .logo-item img {
+            width: var(--size-md);
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .logo-item img {
+            width: var(--size-lg);
+        }
+    }
+</style>

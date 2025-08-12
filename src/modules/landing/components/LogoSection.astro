@@ -1,22 +1,25 @@
 ---
-import LogoBrand from "../components/LogoBrand.astro"
+import LogoBrand from "src/modules/brand/components/LogoBrand.astro"
+import Counter from "src/modules/landing/components/Counter.astro";
 ---
 
 <section class="logo-section">
 
-    <h2 class="logo-brand__title">Used by the world's leading companies</h2>
+    <h2 class="logo-brand__title">Confían en nosotros
+    </h2>
 
     <div class="logo-brand">
         <div class="logo-brand__container">
-            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
-            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
-            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
-            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
-            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
-            <LogoBrand image="/img/logo-mostaza-150x150.png" alt="Mostaza"/>
+            <LogoBrand image="/img/logos/clients/alborada.svg" alt="logo Alborada" sizeSm={90} sizeMd={100} sizeLg={100}/>
+            <LogoBrand image="/img/logos/clients/tracsa.svg" alt="Logo Tracsa" sizeSm={110} sizeMd={140} sizeLg={140}/>
+            <LogoBrand image="/img/logos/clients/mostaza.svg" alt="Logo Mostaza" sizeSm={90} sizeMd={100} sizeLg={100}/>
+            <LogoBrand image="/img/logos/clients/shell.svg" alt="Logo Shell" sizeSm={90} sizeMd={100} sizeLg={100}/>
+            <LogoBrand image="/img/logos/clients/fumisem.svg" alt="logo Fumisem" sizeSm={100} sizeMd={120} sizeLg={120}/>
+            <LogoBrand image="/img/logos/clients/depaoli.svg" alt="logo Depaoli" sizeSm={110} sizeMd={130} sizeLg={130}/>
+            <LogoBrand image="/img/logos/clients/hf.svg" alt="logo Hardfacing" sizeSm={120} sizeMd={160} sizeLg={160}/>
+            <LogoBrand image="/img/logos/clients/cade.svg" alt="logo Cade" sizeSm={120} sizeMd={160} sizeLg={160}/>
         </div>
     </div>
-
 </section>
 
 <style>
@@ -27,17 +30,19 @@ import LogoBrand from "../components/LogoBrand.astro"
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #424242;
-    padding: 2rem;
+    background-color: #e4e4e4;
+    padding: 4rem 1rem;
 }
 
 .logo-brand__title {
     text-align: center;
     margin-bottom: 0.5rem;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: var(--font-size-base);
+    font-weight: 600;
     color: #fafafa;
     padding: 0 1rem;
+    text-transform: uppercase;
+
 }
 
 .logo-brand {

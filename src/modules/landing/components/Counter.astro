@@ -1,0 +1,178 @@
+<section class="impact-section" aria-label="Indicadores clave">
+  <div class="impact-container">
+    <div class="impact-grid">
+      <div class="counter">
+        <p class="counter-number" data-target="200">
+          <span class="sign" aria-hidden="true">+</span>
+          <span class="count-value">0</span>
+        </p>
+        <p class="counter-title">Clientes</p>
+        <p class="counter-sub">satisfechos</p>
+      </div>
+
+      <div class="counter">
+        <p class="counter-number" data-target="1200">
+          <span class="sign" aria-hidden="true">+</span>
+          <span class="count-value">0</span>
+        </p>
+        <p class="counter-title">kWp</p>
+        <p class="counter-sub">instalados</p>
+      </div>
+
+      <div class="counter">
+        <p class="counter-number" data-target="7">
+          <span class="count-value">0</span>
+        </p>
+        <p class="counter-title">años</p>
+        <p class="counter-sub">de trayectoria</p>
+      </div>
+
+      <div class="counter">
+        <p class="counter-number" data-target="3750">
+          <span class="sign" aria-hidden="true">+</span>
+          <span class="count-value">0</span>
+        </p>
+        <p class="counter-title">tCO₂</p>
+        <p class="counter-sub">evitado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ===== COUNTER (alineado a global.css / colors.css) ===== */
+  .impact-section {
+    margin-top: var(--spacing-lg, 1.5rem);
+    margin-bottom: 0;
+  }
+
+  .impact-container {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .impact-grid {
+    display: grid;
+    gap: var(--spacing-md, 1rem);
+    grid-template-columns: repeat(2, minmax(80px, 1fr));
+    align-items: start;
+  }
+
+  .counter {
+    text-align: center;
+    /* sin tarjeta */
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    max-width: 100px;
+  }
+
+  /* Número: tipografía numérica consistente y centrado verdadero */
+  .counter-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0; /* controlamos con transform del signo */
+    font-family: var(--font-family-text, Poppins, sans-serif);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: 'tnum' 1, 'lnum' 1;
+    font-size: var(--font-size-medium, 1.563rem);
+    line-height: 1;
+    font-weight: 800;
+    color: var(--color-primary, #ef4444);
+    letter-spacing: -0.02em;
+  }
+
+  /* El signo no ocupa ancho: se renderiza pero no desplaza el número */
+  .counter-number .sign {
+    width: 0;              /* no ocupa ancho */
+    overflow: visible;     /* se dibuja igualmente */
+    transform: translateX(-0.9ch); /* acerca el signo a la cifra */
+    color: var(--color-primary, #ef4444);
+    font-weight: 800;
+  }
+
+  .counter-title {
+    margin-top: var(--spacing-xs, .25rem);
+    font-family: var(--font-family-text, Poppins, sans-serif);
+    font-size: var(--font-size-base, 1rem);
+    font-weight: 900; /* más peso visual */
+    color: var(--color-neutral-400, rgba(97,97,97,1));
+  }
+
+  .counter-sub {
+    margin-top: var(--spacing-xs, .25rem);
+    font-size: var(--font-size-small, 0.8rem);
+    font-weight: 500;
+    color: var(--color-neutral-400, rgba(97,97,97,1));
+    text-transform: none;
+  }
+
+  /* 4 columnas cuando el layout lo permite (coherente con hero_left a 720px+) */
+  @media (width > 992px) {
+    .impact-grid {
+      grid-template-columns: repeat(4, minmax(100px, 1fr));
+    }
+  }
+
+  /* Accesibilidad: reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .counter-number,
+    .count-value {
+      transition: none !important;
+    }
+  }
+</style>
+
+<script lang="ts">
+  // Animación numérica con IntersectionObserver (JS + JSDoc para evitar TS errores)
+  (() => {
+    if (typeof window === 'undefined') return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    /** @type {NodeListOf<HTMLElement>} */
+    const counters = document.querySelectorAll('.counter-number');
+
+    /** @type {(el: HTMLElement) => void} */
+    const animateCounter = (el) => {
+      const targetAttr = el.getAttribute('data-target');
+      const target = targetAttr ? Number(targetAttr) : 0;
+      const duration = 2000;
+      const startTime = performance.now();
+      const countSpan = el.querySelector('.count-value');
+      if (!(countSpan instanceof HTMLElement)) return;
+
+      if (prefersReduced) {
+        countSpan.textContent = String(target);
+        return;
+      }
+
+      /** @type {(ts: number) => void} */
+      const step = (ts) => {
+        const progress = Math.min((ts - startTime) / duration, 1);
+        countSpan.textContent = String(Math.floor(progress * target));
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            if (el instanceof HTMLElement) {
+              animateCounter(el);
+              obs.unobserve(el);
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach((c) => observer.observe(c));
+    } else {
+      counters.forEach((c) => animateCounter(c));
+    }
+  })();
+</script>

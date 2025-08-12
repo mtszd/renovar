@@ -1,5 +1,5 @@
 ---
-import BaseHead from './BaseHead.astro';
+import BaseHead from 'src/layouts/BaseHead.astro';
 import Header from 'src/modules/navigation/navbar/Header.astro';
 import Footer from 'src/modules/navigation/footer/Footer.astro';
 
@@ -11,16 +11,13 @@ interface Props {
 
 const { 
     title = "Renovar Energia", 
-    description = "Te la debo", 
+    description = "Cotiza proyectos fotovoltaicos para hogares, empresas y agroindustrias, descubre casos de éxito reales y recibe asesoría experta para maximizar tu ahorro energético.", 
 } = Astro.props;
 ---
 
 <html lang="es">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			
-		</style>
 	</head>
 
 	<body>
@@ -31,5 +28,12 @@ const {
 </html>
 
 <style>
+
+body {
+	min-height: 100dvh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	background-color: #fafafa;
+}
 
 </style>
