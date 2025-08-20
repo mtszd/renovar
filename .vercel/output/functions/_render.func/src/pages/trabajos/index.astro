@@ -1,0 +1,125 @@
+---
+import MainLayout from 'src/layouts/MainLayout.astro';
+import WorkCard from 'src/modules/works/components/WorkCard.svelte';
+import { works } from 'src/data/works.js';
+import type { Work } from 'src/data/works.js';
+---
+
+<MainLayout title="Nuestros Trabajos - Energía Solar">
+  <section class="works-gallery">
+    <div class="works-text__container">
+      <h1 class="works-gallery__title">Obras realizadas</h1>
+      <p class="works-gallery__subtitle">
+        Descubre los proyectos de energía solar que hemos realizado,
+        transformando espacios con soluciones sustentables.
+      </p>
+    </div>
+
+    <div class="works-grid">
+      {works.map((work: Work) => (
+        <WorkCard
+          work={work}
+          href={`/trabajos/${work.slug}`}
+          client:load
+        />
+      ))}
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+/* (Conserva el bloque CSS original sin cambios) */
+.works-gallery {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.works-text__container {
+  height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-lg);
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.works-gallery__title {
+  font-family: var(--font-family-title);
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-dark);
+}
+
+.works-gallery__subtitle {
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-medium);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-3xl);
+}
+
+@media (width <= 380px) {
+  .works-gallery {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+  
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .works-gallery__title {
+    font-size: var(--font-size-large);
+  }
+  
+  .works-gallery__subtitle {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (width > 576px) {
+  .works-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+
+@media (width > 992px) {
+  .works-gallery {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+  }
+  
+  .works-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (width > 1440px) {
+  .works-grid {
+    width: 1440px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (width > 1440px) {
+  .works-gallery {
+    max-width: 1400px;
+  }
+}
+</style>
