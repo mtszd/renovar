@@ -137,7 +137,7 @@ import BrandSlider from "src/modules/landing/components/BrandSlider.astro";
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.1;
-    font-size: 2.441rem;
+    font-size: var(--font-size-large, 2rem);
     color: var(--color-text-dark, #303030);
   }
   .hero__title .title-line { display: block; }
@@ -194,10 +194,10 @@ import BrandSlider from "src/modules/landing/components/BrandSlider.astro";
   /* Escalados del título en pantallas grandes */
   @media (min-width: 992px) {
     .hero { padding-left: var(--spacing-xl, 2rem); padding-right: var(--spacing-xl, 2rem); }
-    .hero__title { font-size: 3.4rem; }
+    .hero__title { font-size: var(--font-size-xlarge, 2rem); }
     .hero__bottom { margin-top: var(--spacing-3xl, 4rem); }
   }
   @media (min-width: 1280px) {
-    .hero__title { font-size: 3.815rem; }
+    .hero__title { font-size: var(--font-size-xxlarge, 2rem); }
   }
 </style>

@@ -1,26 +1,26 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-      "strictNullChecks": true,
-      "target": "ESNext",
-      "module": "NodeNext",
-      "lib": ["DOM", "ESNext"],
-      "allowJs": true,
-      "checkJs": true,
-      "jsx": "preserve",
-      "moduleResolution": "NodeNext",
-      "isolatedModules": true,
-      "resolveJsonModule": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "skipLibCheck": true,
-      "noEmit": true,
-      "baseUrl": ".",
-      "paths": {
-        "astro:content": ["./.astro/types.d.ts"]
-      }
+    "strictNullChecks": true,
+    "target": "ESNext",
+    "module": "NodeNext",
+    "lib": ["DOM", "ESNext"],
+    "allowJs": true,
+    "checkJs": true,
+    "jsx": "preserve",
+    "moduleResolution": "NodeNext",
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "astro:content": ["./.astro/types.d.ts"]
+    }
   },
   "include": ["src", ".astro"]
 }
