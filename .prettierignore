@@ -1,0 +1,13 @@
+# build / salidas
+dist/
+.astro/
+.vercel/
+node_modules/
+public/
+
+# Vite/lockfiles/cache locales
+pnpm-lock.yaml
+yarn.lock
+
+# artefactos varios
+*.log
