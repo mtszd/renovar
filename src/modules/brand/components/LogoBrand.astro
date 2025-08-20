@@ -21,17 +21,17 @@ const { image, alt, sizeSm = 90, sizeMd = 100, sizeLg = 120 } = Astro.props;
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
     }
 
-    .logo-item img {        
+    .logo-item img {
         width: var(--size-sm);
         object-fit: contain;
         filter: grayscale(1);
         transition: filter 0.3s ease;
     }
 
-    .logo-item img:hover {        
+    .logo-item img:hover {
         filter: grayscale(0);
     }
 

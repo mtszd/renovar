@@ -1,174 +1,288 @@
-@import './colors.css';
+@import "./colors.css";
 
 :root {
-    /* Fuentes */
-	--font-family-brand: 'Montserrat', sans-serif;
-    --font-family-text: 'Poppins', sans-serif;
-	--font-family-title: 'Merriweather', serif;
+  /* Fuentes */
+  --font-family-brand: "Montserrat", sans-serif;
+  --font-family-text: "Poppins", sans-serif;
+  --font-family-title: "Merriweather", serif;
 
-	/* Tamaños de fuente */
-	--font-size-xsmall: 0.64rem;
-	--font-size-small: 0.8rem;
-	--font-size-base: 1rem;
-	--font-size-medium: 1.563rem;
-	--font-size-large: 1.953rem;
-	--font-size-xlarge: 2.441rem;
-	--font-size-xxlarge: 3.052rem;
-	--font-size-xxxlarge: 3.815rem;
+  /* Tamaños de fuente */
+  --font-size-xsmall: 0.64rem;
+  --font-size-small: 0.8rem;
+  --font-size-base: 1rem;
+  --font-size-medium: 1.563rem;
+  --font-size-large: 1.953rem;
+  --font-size-xlarge: 2.441rem;
+  --font-size-xxlarge: 3.052rem;
+  --font-size-xxxlarge: 3.815rem;
 
-	/* NUEVAS VARIABLES - AGREGAR DESPUÉS DE LAS FUENTES EXISTENTES */
+  /* NUEVAS VARIABLES - AGREGAR DESPUÉS DE LAS FUENTES EXISTENTES */
 
-	/* Espaciado usando tu escala */
-	--spacing-xs: 0.25rem;    /* 4px */
-	--spacing-sm: 0.5rem;     /* 8px */
-	--spacing-md: 1rem;       /* 16px */
-	--spacing-lg: 1.5rem;     /* 24px */
-	--spacing-xl: 2rem;       /* 32px */
-	--spacing-2xl: 3rem;      /* 48px */
-	--spacing-3xl: 4rem;      /* 64px */
+  /* Espaciado usando tu escala */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
 
-	/* Pesos de fuente */
-	--font-weight-normal: 400;
-	--font-weight-medium: 500;
-	--font-weight-semibold: 600;
-	--font-weight-bold: 700;
-
-	
-				
-	}
-
-/* Reset CSS */
-html, button, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	box-sizing: border-box;
-	font: inherit;
-
+  /* Pesos de fuente */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-	display: block;
+/* Reset CSS */
+html,
+button,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 
 main {
-	width: 100%;
-	margin: auto;
+  width: 100%;
+  margin: auto;
 }
-
 
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
-h1, h2 {
-	font-family: var(--font-family-title);
+h1,
+h2 {
+  font-family: var(--font-family-title);
 }
 
-
-body, h1, h2, h3, h4, h5, h6, p, ul, ol, input, textarea, button, input[type="button"], a, label, nav, footer {
-	font-family: var(--font-family-text);
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+input,
+textarea,
+button,
+input[type="button"],
+a,
+label,
+nav,
+footer {
+  font-family: var(--font-family-text);
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ul, ol, input, textarea, button, input[type="button"], a, label, nav, footer {
-	font-optical-sizing: auto;
-    font-style: normal;
-	text-wrap: pretty;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+input,
+textarea,
+button,
+input[type="button"],
+a,
+label,
+nav,
+footer {
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-wrap: pretty;
 }
 
-	
-button, input[type="button"] {
-	border-radius: 0.2rem;
+button,
+input[type="button"] {
+  border-radius: 0.2rem;
 }
 
-a{
-	text-decoration: none;
+a {
+  text-decoration: none;
 }
-
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 /* A11y*/
 
 .sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	clip: rect(1px 1px 1px 1px);
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* Clases utilitarias para textos */
-.text-primary { color: var(--color-primary); }
-.text-accent { color: var(--color-accent); }
-.text-muted { color: var(--color-text-muted); }
-.text-white { color: var(--color-text-white); }
+.text-primary {
+  color: var(--color-primary);
+}
+.text-accent {
+  color: var(--color-accent);
+}
+.text-muted {
+  color: var(--color-text-muted);
+}
+.text-white {
+  color: var(--color-text-white);
+}
 
 /* Clases utilitarias para fondos */
-.bg-primary { background-color: var(--color-primary); }
-.bg-accent { background-color: var(--color-accent); }
-.bg-card { background-color: var(--color-bg-card); }
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.bg-accent {
+  background-color: var(--color-accent);
+}
+.bg-card {
+  background-color: var(--color-bg-card);
+}
 /* Animaciones */
 
 .appear {
-	animation: appear linear both;
-	animation-timeline: view();
-	animation-range: entry 20% cover 30%;
-	animation-fill-mode: both;
+  animation: appear linear both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 30%;
+  animation-fill-mode: both;
 }
 
 @keyframes appear {
+  from {
+    opacity: 0;
+    transform: translatey(100px);
+  }
 
-	from {
-		opacity: 0;
-		transform: translatey(100px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translatey(0px);	
-	}
-
+  to {
+    opacity: 1;
+    transform: translatey(0px);
+  }
 }
 
 @keyframes animate-gradient {
-
-	to{
-		background-position: 200%;
-	}
-
+  to {
+    background-position: 200%;
+  }
 }
-
-
 
 @media (width > 380px) {
-
 }
-
 
 @media (width > 576px) {
-
 }
 
-
-@media (width >  992px) {
-
+@media (width > 992px) {
 }
-
 
 @media (width > 1200px) {
-
 }
 
-
 @media (width > 1440px) {
-
 }

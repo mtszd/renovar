@@ -1,0 +1,32 @@
+---
+import MainLayout from "src/layouts/MainLayout.astro";
+import Hero from "src/modules/landing/components/Hero.astro";
+import TextBlock from "src/modules/landing/components/TextBlock.svelte"
+import LogoSection from "src/modules/landing/components/LogoSection.astro";
+import Bentobox from "src/modules/landing/components/Bentobox.astro";
+import { featureLanding } from "src/data/feature-landing-text";
+
+import GalleryLink from "src/modules/landing/components/GalleryLink.svelte";
+
+import { works } from "src/data/works.ts";
+
+
+const sliderWorks = works;
+
+console.log("sliderWorks.length =", sliderWorks.length);
+---
+
+<MainLayout>
+    <Hero/>
+    <TextBlock textsblocks={featureLanding}/>
+    
+    <GalleryLink
+    client:load
+    images={sliderWorks}
+    />
+    <LogoSection/>
+    <Bentobox/>
+</MainLayout>
+
+<style>
+</style>
